@@ -1,5 +1,4 @@
 let trails = [];
-
 for (let i = 0; i < 10; i++) {
   let trail = document.createElement("div");
   trail.className = "trail";
