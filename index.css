@@ -1,0 +1,499 @@
+body {
+    margin: 0;
+    padding: 0;
+    cursor: none;
+    background-color: rgb(0, 0, 0);
+
+  }
+  
+
+  /*====================================== Trail Mouse ====================================*/
+  .trail {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition-property: opacity, transform;
+    transition-timing-function: ease-out;
+    transition-duration: 1s;
+    opacity: 0;
+    
+  }
+
+/*====================================== Navigation ====================================*/
+  .navigation {
+    position: fixed;  /* Posisi tetap */
+    top: 20px;  /* 20px dari atas */
+    right: 30px;  /* 20px dari kanan */
+  }
+  
+  .navigation ul {
+    list-style-type: none;
+    padding: 0;
+    transform: translateY(-100px); /* Geser elemen ke atas sebelum muncul */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .navigation li {
+    display: inline;
+    margin-right: 20px; /* Jarak antara item navigasi */
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: white;  /* Warna teks putih */
+    font-size: 16px; /* Ukuran font */
+  }
+
+  .navigation {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: none;
+    z-index: 2;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .sidebar-hidden {
+    display: none;
+  }
+
+
+
+
+
+
+
+/*====================================== RESUME BUTTON====================================*/
+
+#cv-button {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  transition: top 1s ;
+}
+
+#cv-background {
+  width: 65.8px;  /* Mengatur lebar sama dengan tombol */
+  height: 20px; /* Mengatur tinggi sama dengan tombol */
+  background-color: white;
+  position: absolute;
+  top: 10px; /* Mengatur posisi sedikit ke bawah */
+  left: 309.5px;  /* Mengatur posisi ke kiri */
+  z-index: 1;
+}
+
+
+#cv-button:hover {
+  top: -4px; /* Menggeser tombol sedikit ke atas saat di-hover */
+  transition: top 0.2s, bottom 0.2s;
+}
+
+/*====================================== social button ====================================*/
+
+  .social-icons, .email-container {
+    position: fixed;  /* Posisi tetap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(110%); /* Initially, move them below the viewport */
+    transition: transform 1s ease; /* Transition with ease-in-out effect */
+  }
+  
+  .social-icons.show, .email-container.show {
+    transform: translateY(0); /* Move them back to their original position */
+  }
+  .social-icons {
+    bottom: 20px;  /* 20px dari bawah */
+    left: 30px;  /* 20px dari kiri */
+  }
+
+  .social-icons ion-icon:hover {
+    transform: translateY(-6px); /* Move the icon slightly up on hover */
+    transition: transform 0.2s ease;
+  }
+  
+  .email-container {
+    bottom: 20px;  /* 20px dari bawah */
+    right: 40px;  /* 20px dari kanan */
+  }
+  
+  ion-icon {
+    font-size: 30px;
+    margin: 5px;
+    color: white;  /* Warna ikon putih */
+  }
+  
+  .email-text {
+    writing-mode: vertical-rl;
+    color: white;  /* Warna teks putih */
+    font-size: 24px;
+  }
+
+  .email-container .email-text:hover {
+    transform: translateY(-7px); /* Move the text slightly up on hover */
+    transition: transform 0.2s ease; /* Add a smooth transition effect */
+  }
+  
+  .vertical-line1, .vertical-line2 {
+    width: 1px;
+    height: 100px;
+    background-color: white;  /* Warna garis vertikal putih */
+    margin: 5px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*====================================== Container1 ====================================*/
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Oswald:wght@700&display=swap');
+
+
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.container {
+  background-color: rgb(0, 0, 0);
+  text-align: left;
+  width: 50%;
+  height: auto;
+  margin-top: 100px;
+  margin-left: 200px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: slideUpFadeIn 1s ease-out;
+  z-index: 1;
+}
+
+/* General text styling */
+.container p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Styling for the first text (green color, small size) */
+.green-text {
+  color: #00FF00;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;  /* Oswald font */
+}
+
+/* Styling for the second text (white color, large size) */
+.gray-text {
+  color: #FFFFFF;
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif;  /* Roboto font */
+  font-weight: 900;  /* Highest weight for Roboto */
+}
+
+/* Styling for the third text (gray color, large size) */
+.white-text {
+  color: #A9A9A9;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 900;  /* Highest weight for Roboto */
+  font-family: 'Roboto', sans-serif;  /* Roboto font */
+}
+
+/* Styling for additional text */
+.additional-text {
+  color: #ffffff;
+  font-size: 16px;
+  text-align: justify;
+  font-family: 'Oswald', sans-serif;  /* Oswald font */
+}
+
+
+
+
+.contact-button {
+  background-color: #000000;  /* Black */
+  color: #FFFFFF;
+  margin-top: 30px;  /* White text */
+  padding: 10px 20px;  /* Padding for size */
+  font-size: 18px;  /* Text size */
+  border: 2px solid #FFFFFF;  /* White border */
+  border-radius: 5px;  /* Rounded corners */
+  cursor: pointer;  /* Hand cursor on hover */
+  font-family: 'Roboto', sans-serif;  /* Using the Roboto font */
+  font-weight: 900;  /* Highest weight for emphasis */
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Transition for hover effect */
+}
+
+.contact-button:hover {
+  background-color: #FFFFFF;  /* White */
+  color: #000000;  /* Black text */
+  border: 2px solid #000000;  /* Black border on hover */
+}
+
+/*====================================== Container2 ====================================*/
+
+.about-container {
+  background-color: rgb(30, 0, 255);
+  text-align: left;
+  width: 50%;
+  height: auto;
+  margin-top: 200px;
+  margin-left: 200px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: slideUpFadeIn 1s ease-out;
+}
+
+/* Styling for the title */
+.container-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styling for the content text */
+.container-text {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/*====================================== Side bar ====================================*/
+  .sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #111;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    transition: all 0.5s; /* Optional: for smooth transition */
+
+  }
+  
+  .sidebar ul li a ion-icon {
+    margin-right: 10px;  /* Jarak antara ikon dan teks */
+    vertical-align: middle;  /* Menyelaraskan ikon dengan teks */
+    margin-right: 20px;
+    font-size: 20px;
+  }
+  
+
+  /* Unordered list styling */
+  .sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding: 60px 0 0 0;
+  }
+  
+  /* List item and anchor link styling */
+  .sidebar ul li {
+      text-align: center;
+      text-align: left; /* Mengubah ini dari center ke left */
+      padding-left: 20px;
+  }
+  
+  .sidebar ul li a {
+    display: flex; /* Menggunakan flexbox */
+    align-items: center; /* Menyelaraskan ikon dan teks secara vertikal */
+    justify-content: start;
+    font-family: 'Arial', sans-serif;  /* Font family */
+    font-size: 12px;  /* Font size */
+    font-weight: bold;  /* Font weight */
+    color: #ffffff;  /* Text color */
+    padding: 10px;  /* Padding */
+    text-decoration: none;  /* Remove underlines */
+    line-height: 1.6;  /* Line height */
+  }
+  
+  /* Hover effect for list items */
+  .sidebar ul li a:hover {
+    background-color: #000000;  /* Background color on hover */
+    color: #ffffff;  /* Text color on hover */
+    border-top-left-radius: 15px;  /* Rounded top-left corner */
+    border-bottom-left-radius: 15px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media (max-width: 768px){  
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;  /* Posisi di atas */
+        right: 20px;  /* Posisi di kanan */
+        color: white;
+        cursor: pointer;
+        font-size: 24px;
+          }
+      
+          .sidebar-hidden {
+            display: none;
+          }
+          
+      .sidebar {
+        display: none;
+      }
+    }
+
+  @media (max-width: 480px){
+/*====================================== Container1 ====================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Oswald:wght@700&display=swap');
+
+
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.container {
+  background-color: rgb(0, 0, 0);
+  text-align: left;
+  width: 70%;
+  height: auto;
+  margin-top: 100px;
+  margin-left: 50px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: slideUpFadeIn 1s ease-out;
+}
+
+/* General text styling */
+.container p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Styling for the first text (green color, small size) */
+.green-text {
+  color: #00FF00;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;  /* Oswald font */
+}
+
+/* Styling for the second text (white color, large size) */
+.gray-text {
+  color: #FFFFFF;
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif;  /* Roboto font */
+  font-weight: 900;  /* Highest weight for Roboto */
+}
+
+/* Styling for the third text (gray color, large size) */
+.white-text {
+  color: #A9A9A9;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 900;  /* Highest weight for Roboto */
+  font-family: 'Roboto', sans-serif;  /* Roboto font */
+}
+
+/* Styling for additional text */
+.additional-text {
+  color: #ffffff;
+  font-size: 16px;
+  text-align: justify;
+  font-family: 'Oswald', sans-serif;  /* Oswald font */
+}
+
+
+
+
+.contact-button {
+  background-color: #000000;  /* Black */
+  color: #FFFFFF;
+  margin-top: 30px;  /* White text */
+  padding: 10px 20px;  /* Padding for size */
+  font-size: 18px;  /* Text size */
+  border: 2px solid #FFFFFF;  /* White border */
+  border-radius: 5px;  /* Rounded corners */
+  cursor: pointer;  /* Hand cursor on hover */
+  font-family: 'Roboto', sans-serif;  /* Using the Roboto font */
+  font-weight: 900;  /* Highest weight for emphasis */
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Transition for hover effect */
+}
+
+.contact-button:hover {
+  background-color: #FFFFFF;  /* White */
+  color: #000000;  /* Black text */
+  border: 2px solid #000000;  /* Black border on hover */
+}
+  }
