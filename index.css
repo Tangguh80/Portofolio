@@ -268,7 +268,7 @@ body {
 /*====================================== Container2 ====================================*/
 
 .about-container {
-  background-color: rgb(30, 0, 255);
+  background-color: rgb(0, 0, 0);
   text-align: left;
   width: 50%;
   height: auto;
@@ -284,17 +284,19 @@ body {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #00FF00;
 }
 
 /* Styling for the content text */
 .container-text {
   font-size: 18px;
+  color: #FFFFFF;
   line-height: 1.5;
 }
 
 /*====================================== Side bar ====================================*/
   .sidebar {
-    width: 250px;
+    width: 500px;
     height: 100%;
     background-color: #111;
     position: fixed;
@@ -496,4 +498,38 @@ body {
   color: #000000;  /* Black text */
   border: 2px solid #000000;  /* Black border on hover */
 }
+
+
+
+
+
+/*====================================== Container2 ====================================*/
+
+.about-container {
+  background-color: rgb(0, 0, 0);
+  text-align: left;
+  width: 70%;
+  height: auto;
+  margin-top: 200px;
+  margin-left: 50px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: slideUpFadeIn 1s ease-out;
+}
+
+/* Styling for the title */
+.container-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #01db1a;
+}
+
+/* Styling for the content text */
+.container-text {
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
   }
