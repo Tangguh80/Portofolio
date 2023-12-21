@@ -355,9 +355,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const allAnimationsDone = Object.values(animationsDone).every(status => status);
         if (allAnimationsDone) {
             // Menetapkan delay sebelum pengalihan halaman
-setTimeout(function() {
-        setTimeout(function() {
-            window.location.href = ".../HalamanUtama/Index.html";
+            setTimeout(function() {
+                window.location.href = "/HalamanUtama/Index.html";
+            }, 3000); // Delay 3000 milidetik (3 detik)
+        }
     }
 
     // ... kode lainnya ...
