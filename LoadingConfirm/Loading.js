@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check if container2 is present
     if (container2) {
         // Wait for the container2 and overlay animation to start and then pause all animations
-        setTimeout(pauseAllAnimations, 4000); // Adjust the time as per your requirement
+        setTimeout(pauseAllAnimations, 3500); // Adjust the time as per your requirement
     }
 
     // Event listener for the agree button
@@ -356,7 +356,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (allAnimationsDone) {
             // Menetapkan delay sebelum pengalihan halaman
             setTimeout(function() {
-                window.location.href = "/HalamanUtama/Index.html";
+                window.location.href = "file:///C:/web-saya3/Portofolio/HalamanUtama/index.html";
             }, 3000); // Delay 3000 milidetik (3 detik)
         }
     }
