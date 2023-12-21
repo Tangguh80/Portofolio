@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Menetapkan delay sebelum pengalihan halaman
 setTimeout(function() {
         setTimeout(function() {
-            window.location.href = "/HalamanUtama/index.html";
+            window.location.href = ".../HalamanUtama/Index.html";
     }
 
     // ... kode lainnya ...
