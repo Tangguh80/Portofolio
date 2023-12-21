@@ -356,7 +356,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (allAnimationsDone) {
             // Menetapkan delay sebelum pengalihan halaman
             setTimeout(function() {
-            window.location.href = "/HalamanUtama/index.html";
+            window.location.href = "/Tangguh80/Portofolio/blob/main/HalamanUtama/index.html";
             }, 3000); // Delay 3000 milidetik (3 detik)
         }
     }
