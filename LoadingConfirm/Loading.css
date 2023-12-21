@@ -1,0 +1,1450 @@
+/*===================== Globals =================*/
+:root{
+    --blue:#3d31b9;
+    --white: #fff;
+    --gray :#f5f5f5;
+    --black1 :#000000;
+    --black2 :rgb(15, 15, 15);
+}
+
+body {
+    overflow-x: hidden;
+   margin: 0;
+   padding: 0;
+   background-color: var(--white);
+
+ }
+ 
+
+ .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+/*===================== square =================*/
+
+.square, .square2 {
+    position: absolute;
+    background-color: var(--white);
+    transform: rotate(45deg);
+}
+
+.square {
+    width: 110px;
+    height: 110px;
+    border: 13px solid var(--black1);
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.768); 
+    animation: sweepSquare 2.5s ease forwards, sweepSquareReverse 1s ease 5.5s forwards;
+    transform: rotate(45deg);
+}
+
+.square2 {
+    width: 167px;
+    height: 167px;
+    border: 20px solid var(--black1);
+    z-index: 0;
+    background: rgba(255, 255, 255, 0.768); 
+    animation: sweepSquare2 2.5s ease forwards, sweepSquare2Reverse 1s ease 5.5s forwards;
+    transform: rotate(45deg); 
+}
+
+@keyframes sweepSquare {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+@keyframes sweepSquare2 {
+    0% {
+        clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes sweepSquareReverse {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+}
+
+@keyframes sweepSquare2Reverse {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    100% {
+        clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+    }
+}
+
+
+
+
+
+/*===================== image =================*/
+.Font-image {
+    z-index: 2;
+    max-width: 0; 
+    max-height: 0;
+    position: absolute;
+    animation: zoomIn 2s ease forwards, zoomInReverse 0.5s ease 5.5s forwards;
+}
+
+.Bintang-image {
+    z-index: 3;
+    max-width: 490px;
+    max-height: 490px;
+    position: absolute;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards 2s, fadeInReverse 0.5s ease 5s forwards;
+}
+
+@keyframes zoomIn {
+    0% { max-width: 0; max-height: 0; opacity: 0; }
+    100% { max-width: 400px; max-height: 400px; opacity: 1; }
+}
+
+@keyframes zoomInReverse {
+    0% {
+        max-width: 400px;
+        max-height: 400px;
+        opacity: 1;
+    }
+    100% {
+        max-width: 0;
+        max-height: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInReverse {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*===================== privacy Navigation =================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.container2 {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    max-width: 5000px;
+    max-height: 100px;
+    border-radius: 0px; 
+    font-family: 'Poppins', sans-serif; 
+    color: #000000;
+    height: 100px;
+    top: 0;
+    left: 0;
+    animation: slideDown 0.5s ease-out 3.5s forwards;
+    opacity: 0;
+    z-index: 7;
+}
+
+
+@keyframes slideDown {
+    0% {
+        top: -100px; 
+        opacity: 0;
+    }
+    100% {
+        top: 0; 
+        opacity: 1; 
+    }
+}
+
+@keyframes slideDownReverse {
+    0% {
+        top: 0; 
+        opacity: 1; 
+    }
+    100% {
+        top: -100px; 
+        opacity: 0;
+    }
+}
+
+.container2.slideDownReverse {
+    animation: slideDownReverse 0.5s ease-out forwards;
+}
+
+.overlay {
+    position: absolute;
+    display: block; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.775); 
+    z-index: 6; 
+    opacity: 0;
+    animation: fadeInOverlay 0.5s ease-out 3.5s forwards;
+}
+
+@keyframes fadeInOverlay {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutOverlay {
+    0% { 
+       opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.overlay.fadeOutOverlay {
+    animation: fadeInOverlayReverse 0.5s ease-out forwards;
+}
+
+
+.privacy-navigation {
+    position: relative;
+    height: 70px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 0px;
+    border-bottom: 1px solid #060606;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    text-align: left; 
+    margin-bottom: 0px; 
+    font-size: 20px;
+}
+
+p {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    text-align: left; 
+    font-size: 15px;
+}
+
+.buttons .button {
+    font-family: 'Poppins', sans-serif; 
+}
+
+
+.button {
+    position: absolute;
+    padding: 6px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-agree {
+    top: 65px;
+    right: 100px;
+    background-color: rgba(8, 156, 5, 0.701);
+    color: #000000;
+    border-radius: 80px;
+}
+
+.button-disagree {
+    top: 65px;
+    right: 200px;
+    background-color: rgba(220, 53, 70, 0);
+    color: #000000;
+}
+
+
+
+
+
+
+
+/*===================== more information =================*/
+.overlay2 {
+    position: absolute;
+    display: block; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.658); 
+    z-index: 8; 
+    opacity: 0;
+    animation: fadeInOverlay2 0.5s ease-out 0s forwards;
+}
+
+@keyframes fadeInOverlay2 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutOverlay2 {
+    0% { 
+       opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.overlay2.fadeOutOverlay2 {
+    animation: fadeInOverlayReverse 0.5s ease-out forwards;
+}
+
+.moreInfo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; 
+    max-width: 600px;
+    height: 600px; 
+    max-height: 85%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    overflow-y: auto; 
+    z-index: 10;
+    overflow-x: hidden;
+}
+
+.moreInfo-container {
+    /* existing styles */
+    animation: slideInFromBottom 0.5s ease-out forwards;
+}
+
+.moreInfo-container.fadeOut {
+    animation: slideOutToBottom 0.5s ease-out forwards;
+}
+
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToBottom {
+    0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+}
+
+
+hr {
+    border-color: var(--white);
+    width: 540px;
+}
+
+.moreInfo-container h3 {
+    position: absolute;
+    top: 0px;
+    left: 30px;
+    font-size: 20px;
+    text-align: left;
+}
+
+
+.moreInfo-container h3 + p {
+    position: absolute;
+    text-align: justify;
+    top: 35px; 
+    padding-right: 40px;
+    left: 30px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.moreInfo-container h4 {
+    position: absolute;
+    top: 80px; 
+    left: 30px;
+    font-size: 15px;
+    text-align: left;
+}
+
+
+.moreInfo-container h4 + p {
+    position: absolute;
+    text-align: right;
+    top: 125px; 
+    padding-right: 150px;
+    left: 30px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.moreInfo-container h5 {
+    position: absolute;
+    top: 165px; 
+    left: 30px;
+    font-size: 15px;
+    text-align: left;
+}
+
+
+.moreInfo-container h5 + p {
+    position: absolute;
+    text-align: justify; 
+    top: 218px; 
+    padding-right: 150px;
+    left: 30px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.moreInfo-container h6 {
+    position: absolute;
+    top: 300px; 
+    left: 30px;
+    font-size: 15px;
+    text-align: left;
+}
+
+
+.moreInfo-container h6 + p {
+    position: absolute;
+    text-align: justify;
+    top: 362px; 
+    padding-right: 150px;
+    left: 30px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+
+.moreInfo-container a {
+    color: blue;
+    text-decoration: none;
+}
+
+.moreInfo-container a:hover {
+    text-decoration: underline; /* Add underline on hover for links */
+}
+
+
+.button-container {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    background-color: #ffffff;
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    max-width: 600px;
+    height: 60px; 
+    max-height: 100%; 
+}
+
+.button2 {
+    position: absolute;
+    padding: 6px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-AccSelect {
+    width: 180px;
+    top: 12px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #000000;
+    color: #000000;
+    border-radius: 80px;
+}
+
+.button-AccSelect.hover-green:hover {
+    background-color: rgba(0, 128, 0, 0.511);
+}
+
+.button-AccSelect.hover-red:hover {
+    background-color: rgba(255, 0, 0, 0.495);
+}
+
+.button-Reject{
+    width: 180px;
+    top: 12px;
+    right: 210px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #000000;
+    color: #000000;
+    border-radius: 80px;
+}
+
+.button-Reject:hover {
+    background-color: rgba(255, 0, 0, 0.501);
+}
+
+.button-agree2 {
+    width: 180px;
+    top: 12px;
+    right: 20px;
+    background-color: rgba(8, 156, 5, 0.701);
+    color: #000000;
+    border-radius: 80px;
+}
+
+
+
+.overlay2, .moreInfo-container {
+    display: none;
+}
+
+
+
+/*===================== Line =================*/
+.line1, .line2 {
+    position: fixed;
+    height: 2px; 
+    background-color: var(--black1);
+    box-shadow: 0 0 15px 2px var(--black1);
+    z-index: -1;
+    transform: scaleX(0); 
+}
+
+.line1 {
+    position: absolute;
+    width: 100%; 
+    left: 0; 
+    animation: slideInFromCenter 1s ease forwards 2.6s, line1Up 1.5s ease forwards 6.5s;
+}
+
+.line2 {
+    position: absolute;
+    width: 100%; 
+    right: 0; 
+    animation: slideInFromCenter 1s ease forwards 2.6s, line2Down 1.5s ease forwards 6.5s; 
+}
+
+@keyframes slideInFromCenter {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+
+@keyframes line1Up {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1000);
+    }
+}
+
+
+@keyframes line2Down {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1000);
+    }
+}
+
+
+
+
+.stop-animation {
+    animation: none !important;
+    transform: none !important; 
+}
+
+
+
+/*===================== switch big =================*/
+.container-switch1 {
+    position: absolute;
+    top: 118px;
+    right: 20px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block; 
+    background-color: rgb(238, 238, 238);
+    z-index: 10;
+  }
+
+  .container-switch2 {
+    position: absolute;
+    top: 235px;
+    right: 20px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block; 
+    background-color: rgb(238, 238, 238);
+    z-index: 10;
+  }
+
+  .container-switch3 {
+    position: absolute;
+    top: 355px;
+    right: 20px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block; 
+    background-color: rgb(238, 238, 238);
+    z-index: 10;
+  }
+
+  .big-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px; /* Ukuran switch besar */
+    height: 34px; /* Ukuran switch besar */
+  }
+  
+  .big-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .big-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .big-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .big-switch input:checked + .big-slider {
+    background-color: #44f321;
+  }
+  
+  .big-switch input:focus + .big-slider {
+    box-shadow: 0 0 1px #090909;
+  }
+  
+  .big-switch input:checked + .big-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .big-slider.round {
+    border-radius: 34px;
+  }
+  
+  .big-slider.round:before {
+    border-radius: 50%;
+  }
+  
+
+
+/*===================== switch small =================*/
+  .small-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; /* Ukuran switch dikurangi */
+    height: 22px; /* Ukuran switch dikurangi */
+  }
+  
+  .small-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .small-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 22px; /* Membuat slider lebih bulat */
+  }
+  
+  .small-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; /* Ukuran bulatan slider dikurangi */
+    width: 18px; /* Ukuran bulatan slider dikurangi */
+    left: 2px; /* Posisi bulatan slider disesuaikan */
+    bottom: 2px; /* Posisi bulatan slider disesuaikan */
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%; 
+  }
+  
+  .small-switch input:checked + .small-slider {
+    background-color: #44f321;
+  }
+  
+  .small-switch input:focus + .small-slider {
+    box-shadow: 0 0 1px #000000;
+  }
+  
+  .small-switch input:checked + .small-slider:before {
+    -webkit-transform: translateX(18px); 
+    -ms-transform: translateX(18px); 
+    transform: translateX(18px); 
+  }
+
+
+  .container-switch4,
+  .container-switch5,
+  .container-switch6 {
+  display: none;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*===================== Responsive =================*/
+@media (max-width: 917px){
+
+    .privacy-navigation {
+        position: relative;
+        height: 60px;
+    }
+
+    h2 {
+        position: absolute;
+        top: 5px;
+        left: 50px;
+        text-align: left; 
+        margin-bottom: 0px; 
+        font-size: 16px;
+    }
+    
+    p {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+        text-align: left; 
+        font-size: 13px;
+    }
+
+    .button {
+        position: absolute;
+        padding: 4px 14px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .button-agree {
+        position: absolute;
+        top: 65px;
+        right: 65px;
+        background-color: rgba(8, 156, 5, 0.701);
+        color: #000000;
+        border-radius: 80px;
+        width: 90px;
+        height: 24px;
+        font-size: 13px
+    }
+    
+    .button-disagree {
+        position: absolute;
+        top: 65px;
+        right: 165px;
+        background-color: rgba(220, 53, 70, 0);
+        color: #000000;
+        border-radius: 80px;
+        width: 125px;
+        height: 25px;
+        font-size: 12px
+    }
+}    
+
+
+
+@media (max-width: 750px){
+    .moreInfo-container h3 {
+        position: absolute;
+        top: 0px;
+    }
+    
+    
+    .moreInfo-container h3 + p {
+        position: absolute;
+        text-align: justify;
+        top: 35px; 
+    }
+    
+    .moreInfo-container h4 {
+        position: absolute;
+        top: 80px; 
+    }
+    
+    
+    .moreInfo-container h4 + p {
+        position: absolute;
+        text-align: justify;
+        top: 125px; 
+    }
+    
+    .moreInfo-container h5 {
+        position: absolute;
+        top: 165px; 
+    }
+    
+    
+    .moreInfo-container h5 + p {
+        position: absolute;
+        text-align: justify; 
+        top: 218px; 
+    }
+    
+    .moreInfo-container h6 {
+        position: absolute;
+        top: 300px; 
+    }
+    
+    
+    .moreInfo-container h6 + p {
+        position: absolute;
+        text-align: justify;
+        top: 362px; 
+    }
+    
+    .button2 {
+        position: absolute;
+        padding: 6px 14px;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .button-AccSelect {
+        width: 140px;
+        top: 12px;
+        left: 20px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 80px;
+    }
+    
+    .button-Reject{
+        width: 140px;
+        top: 12px;
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 80px;
+    }
+    
+    .button-agree2 {
+        width: 140px;
+        top: 14px;
+        right: 20px;
+        background-color: rgba(8, 156, 5, 0.701);
+        color: #000000;
+        border-radius: 80px;
+    }
+}
+
+
+
+
+@media (max-width: 584px){
+
+    .moreInfo-container h3 {
+        position: absolute;
+        top: 0px;
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h3 + p {
+        position: absolute;
+        text-align: justify;
+        top: 20px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h4 {
+        position: absolute;
+        top: 85px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h4 + p {
+        position: absolute;
+        text-align: justify;
+        padding-right: 100px;
+        top: 120px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h5 {
+        position: absolute;
+        top: 170px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h5 + p {
+        position: absolute;
+        text-align: justify; 
+        padding-right: 100px;
+        top: 210px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h6 {
+        position: absolute;
+        top: 290px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h6 + p {
+        position: absolute;
+        text-align: justify;
+        padding-right: 100px;
+        top: 338px; 
+        font-size: 10px;
+    }
+    .button2 {
+        position: absolute;
+        padding: 6px 14px;
+        font-size: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .button-AccSelect {
+        width: 110px;
+        top: 14px;
+        left: 12px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 80px;
+    }
+    
+    .button-Reject{
+        width: 110px;
+        top: 14px;
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 80px;
+    }
+    
+    .button-agree2 {
+        width: 110px;
+        top: 16px;
+        right: 12px;
+        background-color: rgba(8, 156, 5, 0.701);
+        color: #000000;
+        border-radius: 80px;
+    }
+
+    .container-switch1,
+    .container-switch2,
+    .container-switch3 {
+    display: none;
+
+    }
+
+    .container-switch4 {
+        position: absolute;
+        top: 120px;
+        right: 10px;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block; 
+        background-color: rgb(238, 238, 238);
+        z-index: 10;
+      }
+
+      .container-switch5 {
+        position: absolute;
+        top: 230px;
+        right: 10px;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block; 
+        background-color:rgb(238, 238, 238);
+        z-index: 10;
+      }
+      .container-switch6 {
+        position: absolute;
+        top: 340px;
+        right: 10px;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block; 
+        background-color: rgb(238, 238, 238);
+        z-index: 10;
+      }
+}
+
+@media (max-width: 480px){
+
+    .square {
+        width: 50px;
+        height: 50px;
+        border: 8px solid var(--black1);
+    }
+    
+    .square2 {
+        width: 79px;
+        height: 79px;
+        border: 12px solid var(--black1);
+    }
+
+    .Font-image {
+        width: 200px; 
+        height: 200px;
+    }
+    
+    .Bintang-image {
+        max-width: 245px;
+        max-height: 245px;
+    }
+
+    .privacy-navigation {
+        position: relative;
+        height: 50px;
+
+    }
+
+    h2 {
+        position: absolute;
+        top: 5px;
+        left: 15px;
+        text-align: left; 
+        margin-bottom: 0px; 
+        font-size: 15px;
+    }
+    
+    p {
+        position: absolute;
+        top: 25px;
+        left: 15px;
+        text-align: left; 
+        font-size: 12px;
+    }
+
+    .button {
+        position: absolute;
+        padding: 5px 14px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .button-agree {
+        position: absolute;
+        top: 57px;
+        right: 15px;
+        background-color: rgba(8, 156, 5, 0.701);
+        color: #000000;
+        border-radius: 80px;
+        width: 90px;
+        height: 24px;
+        font-size: 12px
+    }
+    
+    .button-disagree {
+        position: absolute;
+        top: 57px;
+        right: 115px;
+        background-color: rgba(220, 53, 70, 0);
+        color: #000000;
+        border-radius: 80px;
+        width: 125px;
+        height: 25px;
+        font-size: 12px
+    }
+
+    .moreInfo-container h3 {
+        position: absolute;
+        top: 0px;
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h3 + p {
+        position: absolute;
+        text-align: justify;
+        top: 20px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h4 {
+        position: absolute;
+        top: 85px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h4 + p {
+        position: absolute;
+        text-align: justify;
+        padding-right: 100px;
+        top: 120px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h5 {
+        position: absolute;
+        top: 170px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h5 + p {
+        position: absolute;
+        text-align: justify; 
+        padding-right: 100px;
+        top: 210px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h6 {
+        position: absolute;
+        top: 330px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h6 + p {
+        position: absolute;
+        text-align: justify;
+        padding-right: 100px;
+        top: 378px; 
+        font-size: 10px;
+    }
+
+    .button-container {
+        position: absolute;
+        bottom: -17px;
+        left: 50%;
+        background-color: #ffffff;
+        transform: translate(-50%, -50%);
+        width: 100%; 
+        max-width: 600px;
+        height: 35px; /* Updated height */
+        max-height: 100%; 
+    }
+    
+    .button2 {
+        position: absolute;
+        padding: 6px 3px;
+        font-size: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .button-AccSelect {
+        width: 90px;
+        top: 5px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 80px;
+    }
+    
+    
+    .button-Reject{
+        width: 90px;
+        top: 5px;
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 80px;
+    }
+    
+    .button-agree2 {
+        width: 90px;
+        top: 7px;
+        right: 10px;
+        background-color: rgba(8, 156, 5, 0.701);
+        color: #000000;
+        border-radius: 80px;
+    }
+
+    .container-switch5 {
+        position: absolute;
+        top: 240px;
+        right: 10px;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block; 
+        background-color:rgb(238, 238, 238);
+        z-index: 10;
+      }
+      .container-switch6 {
+        position: absolute;
+        top: 390px;
+        right: 10px;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block; 
+        background-color: rgb(238, 238, 238);
+        z-index: 10;
+      }
+
+}
+
+
+
+
+@media (max-width: 375px){
+    
+    .moreInfo-container h3 {
+        position: absolute;
+        top: 0px;
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h3 + p {
+        position: absolute;
+        text-align: justify;
+        top: 20px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h4 {
+        position: absolute;
+        top: 85px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h4 + p {
+        position: absolute;
+        text-align: justify;
+        padding-right: 100px;
+        top: 120px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h5 {
+        position: absolute;
+        top: 170px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h5 + p {
+        position: absolute;
+        text-align: justify; 
+        padding-right: 100px;
+        top: 210px; 
+        font-size: 10px;
+    }
+    
+    .moreInfo-container h6 {
+        position: absolute;
+        top: 330px; 
+        font-size: 12px;
+    }
+    
+    
+    .moreInfo-container h6 + p {
+        position: absolute;
+        text-align: justify;
+        padding-right: 100px;
+        top: 378px; 
+        font-size: 10px;
+    }
+
+    .button-container {
+        position: absolute;
+        bottom: -17px;
+        left: 50%;
+        background-color: #ffffff;
+        transform: translate(-50%, -50%);
+        width: 100%; 
+        max-width: 600px;
+        height: 35px; /* Updated height */
+        max-height: 100%; 
+    }
+    
+    .button2 {
+        position: absolute;
+        padding: 6px 3px;
+        font-size: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .button-AccSelect {
+        width: 90px;
+        top: 5px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 80px;
+    }
+    
+    
+    .button-Reject{
+        width: 90px;
+        top: 5px;
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 80px;
+    }
+    
+    .button-agree2 {
+        width: 90px;
+        top: 7px;
+        right: 10px;
+        background-color: rgba(8, 156, 5, 0.701);
+        color: #000000;
+        border-radius: 80px;
+    }
+}

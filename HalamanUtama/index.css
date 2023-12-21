@@ -1,0 +1,979 @@
+/*===================== Globals =================*/
+ :root{
+     --blue:#3d31b9;
+     --white: #fff;
+     --gray :#f5f5f5;
+     --black1 :#000000;
+     --black2 :rgb(15, 15, 15);
+ }
+
+body {
+    margin: 0;
+    padding: 0;
+    cursor: none;
+    background-color: var(--black2);
+
+  }
+  
+
+  /*====================================== Trail Mouse ====================================*/
+  .trail {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background: var(--white);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition-property: opacity, transform;
+    transition-timing-function: ease-out;
+    transition-duration: 1s;
+    opacity: 0;
+    overflow-x: hidden;
+    z-index: 1;
+    
+  }
+
+/*====================================== Navigation Container ====================================*/
+.nav-container {
+  position: fixed;
+  top: 0; 
+  right: 0;
+  left: 0;
+  margin-top: 0px;
+  margin-right: auto; 
+  margin-left: auto; 
+  background-color: var(--black1); 
+  padding: 0; 
+  height: 85px;
+  border-radius: 0px; 
+  width: 110%; 
+  max-width: 6000px; 
+  box-sizing: border-box; 
+  border-bottom: 2px solid var(--white);
+  box-shadow: 0 1px 7px 0 var(--white);
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.highlight {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+
+/*====================================== LOGO ICON NAVIGATION ====================================*/
+.logo img {
+  position: relative;
+  max-height: 70px;
+  margin-left: 400px;
+  margin-bottom: -48px;
+  z-index: 2; 
+  top: -1px;
+  cursor: pointer; 
+}
+
+.terang {
+  position: absolute;
+  max-width: 300PX;
+  top: 26px;
+  font-size: 8px;
+  margin-left: 15px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.terang ion-icon {
+  color: var(--white);
+  font-size: 25px; 
+}
+
+
+
+.cari {
+  position: relative;
+  top: 26px;
+  font-size: 10px;
+  margin-left: 15px;
+  cursor: pointer; 
+  z-index: 2;
+  text-align: center;
+}
+
+.cari ion-icon {
+  color: var(--white);
+  font-size: 25px;
+}
+
+
+
+/*====================================== Search container ====================================*/
+.search-container {
+  position: relative;
+  top: -35px;
+  padding-bottom: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  margin-left: 310px;
+  width: 260px; 
+  height: 60px; 
+  padding: 10px;
+  border-radius: 70px; 
+  display: flex; 
+  padding-top: 0;
+  padding-bottom: 0;
+  cursor: none;
+  z-index: 1;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+
+}
+
+.show-search {
+  transform: translateX(0%); /* Geser kembali ke posisi semula */
+}
+
+
+.search-box {
+  position: relative;
+  width: 200px; 
+  height: 30px; 
+  border-radius: 30px; 
+  top: 13px; 
+  padding-left: 20px;
+  padding-right: 40px;
+  cursor: text; 
+  z-index: 2;
+  color: var(--black1);
+  background-color: var(--white);
+  border: 2px solid var(--black1);
+  
+}
+
+::placeholder {
+  color: var(--black1);
+  opacity: 1;
+}
+
+.search-box:focus {
+  outline: none; /* Menghilangkan outline default */
+  border-color: var(--white);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.273);
+}
+
+
+
+
+
+.close-search {
+  cursor: pointer;
+  margin-top: 16.5px; 
+  margin-left: -38px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.close-search ion-icon {
+    color: var(--black1);
+    font-size: 30px; 
+}
+
+.search-box{ 
+  transform: translateX(-120%); 
+  transition: transform 0.5s ease;
+}
+
+.close-search {
+  transform: translateX(-900%); 
+  transition: transform 0.5s ease;
+}
+
+
+
+
+/*====================================== Navigation ====================================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+.navigation {
+  position: relative;
+  top: 4px;
+  left: -250px; 
+  font-family: 'Poppins', sans-serif;
+  z-index: 2;
+}
+
+
+.navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.navigation li {
+  display: inline;
+  margin-right: 20px; 
+}
+
+.no-hover-underline {
+  text-decoration: none !important; /* Remove underline */
+}
+
+
+.navigation a {
+  position: relative; 
+  text-decoration: none;
+  color: var(--white); 
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+
+
+
+.menu-toggle
+.sidebar {
+  display: none;
+}
+
+
+
+
+/*====================================== RESUME BUTTON====================================*/
+
+#cv-button {
+  background-color: var(--black1);
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 10px 20px;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  transition: top 1s ;
+}
+
+#cv-background { 
+  position: absolute;
+  margin-top: 10PX;
+  width: 65.70px;  
+  height: 20px; 
+  background-color: var(--white);
+  right: 20PX; 
+  z-index: 1;
+}
+
+
+.navigation li {
+  position: relative; 
+  display: inline;
+  margin-right: 20px; 
+}
+
+
+
+#cv-button:hover {
+  top: -4px; 
+  transition: top 0.2s, bottom 0.2s;
+}
+/*====================================== social button ====================================*/
+
+  .social-icons, .email-container {
+    position: fixed;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(110%); 
+    transition: transform 1s ease; 
+    margin-top: 56px;
+    margin-right: 56px;
+    margin-bottom: -25px;
+    margin-left: 56px;
+  }
+  
+  .social-icons.show, .email-container.show {
+    transform: translateY(0); 
+  }
+  .social-icons {
+    bottom: 20px;  
+    left: 60px;  
+  }
+
+  .social-icons ion-icon:hover {
+    transform: translateY(-6px); 
+    transition: transform 0.2s ease;
+    color: var(--blue);
+  }
+  
+  .email-container {
+    bottom: 20px;  
+    right: 60px;  
+  }
+  
+  .social-icons ion-icon {
+    font-size: 30px;
+    margin: 5px;
+    color: var(--white);  /* Warna ikon putih */
+  }
+  
+  .email-text {
+    writing-mode: vertical-rl;
+    color: var(--white);  /* Warna teks putih */
+    font-size: 24px;
+  }
+
+  .email-container .email-text:hover {
+    transform: translateY(-7px); /* Move the text slightly up on hover */
+    transition: transform 0.2s ease; /* Add a smooth transition effect */
+    color: cornflowerblue;
+  }
+  
+  .vertical-line1, .vertical-line2 {
+    width: 1px;
+    height: 150px;
+    background-color: var(--white);  /* Warna garis vertikal putih */
+    margin: 5px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*====================================== Container1 ====================================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.container {
+  background-color: var(--black2);
+  text-align: left;
+  width: 50%;
+  margin-top: 100px;
+  margin-left: 200px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: slideUpFadeIn 1s ease-out;
+  z-index: 0;
+  overflow-x: hidden;
+}
+
+
+.container p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+
+.green-text {
+  color: #00FF00;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+.gray-text {
+  color: var(--white);
+  font-size: 36px;
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 900; 
+}
+
+
+.white-text {
+  color: var(--gray);
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 900; 
+  font-family: 'Poppins', sans-serif; 
+}
+
+
+.additional-text {
+  color: var(--white);
+  font-size: 16px;
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+.contact-button {
+  background-color: var(--black1);  
+  color: var(--white);
+  margin-top: 30px;  
+  padding: 10px 20px; 
+  font-size: 18px; 
+  border: 2px solid var(--white);
+  border-radius: 5px;  
+  cursor: pointer;  
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900; 
+  transition: background-color 0.3s ease, color 0.3s ease;  
+}
+
+.contact-button:hover {
+  background-color: var(--white);  
+  color: var(--black1);  
+  border: 2px solid var(--black1);  
+}
+
+/*====================================== Container2 ====================================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-container {
+  background-color: var(--black2);  
+  text-align: justify;  
+  width: 50%;
+  margin-top: 200px; 
+  margin-left: 200px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: slideUpFadeIn 1s ease-out; 
+  z-index: 0;
+}
+
+
+.container-title {
+  color: #00FF00; 
+  font-size: 24px; 
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
+  text-align: left;  
+}
+
+
+.container-text {
+  color: var(--white);  
+  font-size: 18px;  
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  text-align: justify;  
+}
+
+/*====================================== Side bar ====================================*/
+
+  
+  
+  .sidebar ul li a ion-icon {
+    margin-right: 10px;  
+    vertical-align: middle;  
+    margin-right: 20px;
+    font-size: 20px;
+  }
+  
+
+
+  .sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding: 55px 0 0 0;
+  }
+  
+
+  .sidebar ul li {
+      text-align: center;
+      text-align: left; 
+      padding-left: 20px;
+  }
+  
+  .sidebar ul li a {
+    display: flex; 
+    align-items: center; 
+    justify-content: start;
+    font-family: 'Arial', sans-serif;  
+    font-size: 12px;  
+    font-weight: bold; 
+    color: var(--white);  
+    padding: 12px;  
+    text-decoration: none; 
+    line-height: 1.6;  
+  }
+  
+
+  .sidebar ul li a:hover {
+    background-color: rgba(0, 128, 0, 0.514);
+    color: var(--white); 
+    border-top-left-radius: 15px;  
+    border-bottom-left-radius: 15px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+/*====================================== Notif active ====================================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.notif-active {
+  width: 25px;
+  border-radius: 80px;
+  height: 5px;
+  background-color: blue;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  animation-duration: 1s;
+}
+
+.notif-active.zoomIn {
+  animation-name: zoomIn;
+  animation-fill-mode: forwards;
+}
+
+.notif-active.zoomOut {
+  animation-name: zoomOut;
+  animation-fill-mode: forwards;
+}
+
+
+.notif-active p {
+    margin: 0;
+    color: aliceblue;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/*====================================== Social media sidebar ====================================*/
+.socialM-linkedin {
+  position: absolute;
+  width: 25px; 
+  height: 100%; 
+  left: 180px;
+  top: 470px;
+  padding: 0px;
+  border: 1px solid #000000; 
+  background-color: #000000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoM-linkedin {
+  font-size: 25px; 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+.vertical-line {
+  width: 2px; 
+  flex-grow: 1; 
+  background-color: #ffffff;
+  margin: 0 auto; 
+}
+
+.socialM-github {
+  position: absolute;
+  width: 25px; 
+  height: 100%; 
+  left: 360px;
+  top: 470px;
+  padding: 0px;
+  border: 1px solid #000000; 
+  background-color: #000000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoM-github {
+  font-size: 25px; 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+.socialM-instagram {
+  position: absolute;
+  width: 25px; 
+  height: 100%; 
+  left: 540px;
+  top: 470px;
+  padding: 0px;
+  border: 1px solid #000000; 
+  background-color: #000000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoM-instagram {
+  font-size: 25px; 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+.socialM-whatsaap {
+  position: absolute;
+  width: 25px; 
+  height: 100%; 
+  left: 720px;
+  top: 470px;
+  padding: 0px;
+  border: 1px solid #000000; 
+  background-color: #000000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoM-whatsaap {
+  font-size: 25px; 
+  margin-bottom: 5px; 
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media (max-width: 892px){
+    .trail {
+      z-index: 4;
+      
+    }
+    .nav-container{
+      top: 0px;
+      height: 65px;
+    }
+    .social-icons, .email-container {
+      display: none;
+    }
+ 
+
+    .menu-toggle {
+      position: fixed;
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      cursor: pointer;  
+      color: var(--white);
+      top: 30px; 
+      right: 18px; 
+      transform: translate(-50%, -50%); 
+      font-size: 25px;
+      z-index: 4;
+    }
+
+      
+
+
+    .sidebar-hidden {
+        Display: none;
+    }
+          
+    .sidebar {
+      top: 0;
+      width: 900px; 
+      display: block;
+      overflow-y: hidden;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--black2);
+      position: fixed;
+      left: -900px; 
+      z-index: 3;
+      transition: left 0.3s; 
+  }
+
+  
+  .sidebar-visible {
+      left: 0; 
+  }
+      .navigation,
+      .search-container{
+        display: none;
+
+      }
+
+
+
+
+/*====================================== Notif active ====================================*/
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.notif-active {
+  position: relative;
+  top: -500px;
+  left: 220px;
+  width: 25px;
+  border-radius: 80px;
+  height: 5px;
+  background-color: blue;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  animation-duration: 1s;
+  z-index: -1;
+}
+
+.notif-active.zoomIn {
+  animation-name: zoomIn;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+}
+
+.notif-active.zoomOut {
+  animation-name: zoomOut;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+}
+
+
+.notif-active p {
+    margin: 0;
+    color: aliceblue;
+    font-size: 10px;
+}
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media (max-width: 480px){
+/*====================================== Container1 ====================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Oswald:wght@700&display=swap');
+
+
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.container {
+  background-color: rgb(0, 0, 0);
+  text-align: left;
+  margin-top: 100px;
+  margin-left: 50px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: slideUpFadeIn 1s ease-out;
+}
+
+/* General text styling */
+.container p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Styling for the first text (green color, small size) */
+.green-text {
+  color: #00FF00;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;  /* Oswald font */
+}
+
+/* Styling for the second text (white color, large size) */
+.gray-text {
+  color: #FFFFFF;
+  font-size: 36px;
+  font-family: 'Roboto', sans-serif;  /* Roboto font */
+  font-weight: 900;  /* Highest weight for Roboto */
+}
+
+/* Styling for the third text (gray color, large size) */
+.white-text {
+  color: #A9A9A9;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 900;  /* Highest weight for Roboto */
+  font-family: 'Roboto', sans-serif;  /* Roboto font */
+}
+
+/* Styling for additional text */
+.additional-text {
+  color: #ffffff;
+  font-size: 16px;
+  text-align: justify;
+  font-family: 'Oswald', sans-serif;  /* Oswald font */
+}
+
+
+
+
+.contact-button {
+  background-color: #000000;  /* Black */
+  color: #FFFFFF;
+  margin-top: 30px;  /* White text */
+  padding: 10px 20px;  /* Padding for size */
+  font-size: 18px;  /* Text size */
+  border: 2px solid #FFFFFF;  /* White border */
+  border-radius: 5px;  /* Rounded corners */
+  cursor: pointer;  /* Hand cursor on hover */
+  font-family: 'Roboto', sans-serif;  /* Using the Roboto font */
+  font-weight: 900;  /* Highest weight for emphasis */
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Transition for hover effect */
+}
+
+.contact-button:hover {
+  background-color: #FFFFFF;  /* White */
+  color: #000000;  /* Black text */
+  border: 2px solid #000000;  /* Black border on hover */
+}
+
+
+
+
+
+/*====================================== Container2 ====================================*/
+
+.about-container {
+  background-color: rgb(0, 0, 0);
+  text-align: left;
+  width: 70%;
+  height: auto;
+  margin-top: 200px;
+  margin-left: 50px;
+  padding: 20px;
+  border-radius: 15px;
+  animation: slideUpFadeIn 1s ease-out;
+}
+
+/* Styling for the title */
+.container-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #01db1a;
+}
+
+/* Styling for the content text */
+.container-text {
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+  }
