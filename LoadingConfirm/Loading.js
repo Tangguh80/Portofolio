@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Menetapkan delay sebelum pengalihan halaman
             setTimeout(function() {
             window.location.href = '../HalamanUtama/Index.html';
-            }, 4000); // Delay 3000 milidetik (3 detik)
+            }, 4500); // Delay 3000 milidetik (3 detik)
         }
     }
 
