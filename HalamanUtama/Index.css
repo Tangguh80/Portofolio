@@ -648,12 +648,12 @@ body {
       align-items: center; 
       cursor: pointer;  
       color: var(--white);
-      top: 30px; 
+      top: 31px; 
       right: 18px; 
       transform: translate(-50%, -50%); 
-      font-size: 25px;
+      font-size: 28px;
       z-index: 4;
-    }
+    
 
       
 
