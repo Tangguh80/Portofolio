@@ -94,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /*====================================== memunculkan side bar pada tampilan mobile ====================================*/
-
 // Pilih elemen-elemen yang dibutuhkan
 const menuToggle = document.querySelector(".menu-toggle");
 const sidebar = document.querySelector(".sidebar");
@@ -137,6 +136,8 @@ checkWidth();
 
 // Pantau perubahan lebar layar dan sesuaikan tampilan
 window.addEventListener("resize", checkWidth);
+
+
 
 
 
