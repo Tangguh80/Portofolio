@@ -627,6 +627,9 @@ body {
 
 
 
+
+
+
   @media (max-width: 892px){
     .trail {
       z-index: 4;
@@ -653,7 +656,7 @@ body {
       transform: translate(-50%, -50%); 
       font-size: 28px;
       z-index: 4;
-    
+    }
 
       
 
