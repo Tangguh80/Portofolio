@@ -494,7 +494,7 @@ body {
 
 /*====================================== Side bar ====================================*/
 
-  
+  @import url('https://fonts.googleapis.com/css2?family=Knewave:wght@300;400;500;600;700&display=swap');
   
   .sidebar ul li a ion-icon {
     margin-right: 10px;  
@@ -542,6 +542,17 @@ body {
 
   .sidebar {
     display: none;
+  }
+
+  .judul-sidebar {
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      font-size: 26px; 
+      font-weight: 900; 
+      font-family: 'Knewave', cursive;
+      cursor: text;
+      color: var(--white);
   }
 
 /*====================================== Notif active ====================================*/
