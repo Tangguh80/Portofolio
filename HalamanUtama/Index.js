@@ -368,7 +368,7 @@ updateTheme();
 terang.addEventListener("click", function() {
   toggleTema();
   rotasi += 180; // Menambahkan 180 derajat ke rotasi
-  terang.style.transform = rotate(${rotasi}deg); // Mengatur properti transform
+  terang.style.transform = `rotate(${rotasi}deg)`; // Mengatur properti transform
   // Mengganti logo
   if (logoStatus == "logo1") {
     logo.src = "TS LOGO2.png";
