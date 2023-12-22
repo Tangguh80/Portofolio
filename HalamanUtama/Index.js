@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /*====================================== memunculkan side bar pada tampilan mobile ====================================*/
+
 // Pilih elemen-elemen yang dibutuhkan
 const menuToggle = document.querySelector(".menu-toggle");
 const sidebar = document.querySelector(".sidebar");
@@ -136,11 +137,6 @@ checkWidth();
 
 // Pantau perubahan lebar layar dan sesuaikan tampilan
 window.addEventListener("resize", checkWidth);
-
-
-
-
-
 
 
 
@@ -420,7 +416,6 @@ kontras.addEventListener("click", function(event) {
 
 
 
-
 /*====================================== NOTIF AKTIF SIDEBAR ====================================*/
 function moveNotification(topValue) {
   const notification = document.getElementById("notification");
@@ -440,6 +435,7 @@ function moveNotification(topValue) {
     notification.classList.add("zoomIn");
   }, 100); // Ubah sesuai dengan durasi animasi Anda (dalam milidetik)
 }
+
 
 
 
