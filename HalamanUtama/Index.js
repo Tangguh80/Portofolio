@@ -327,46 +327,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /*====================================== TOMBOL TERANG DAN GELAP ====================================*/
-// Mendapatkan elemen tombol terang
+// Mendapatkan elemen tombol terang dan elemen-elemen lainnya
 let terang = document.querySelector(".terang");
-// Mendapatkan elemen gambar logo
 let logo = document.getElementById("logo");
-// Mendapatkan elemen tombol kontras pada sidebar dan teksnya
 let kontras = document.querySelector(".sidebar ul li a[href='#contrast']");
 let modeText = kontras.querySelector("span");
 
-// Mendefinisikan variabel untuk menyimpan status warna, rotasi, dan status logo
-let warna = "normal"; // normal atau terbalik
-let rotasi = 0; // derajat rotasi
-let logoStatus = "logo1"; // logo1 atau logo2
+// Mendefinisikan variabel
+let warna = localStorage.getItem("tema") || "normal"; // Memuat status tema dari localStorage atau 'normal'
+let rotasi = 0;
+let logoStatus = "logo1";
 
-// Fungsi untuk mengganti tema dan teks
-function toggleTema() {
+// Fungsi untuk memperbarui tema sesuai dengan status tema
+function updateTheme() {
   let root = document.documentElement;
-
-  if (warna == "normal") {
+  if (warna == "terbalik") {
     root.style.setProperty("--white", "#000000");
     root.style.setProperty("--black1", "#ffffff");
     root.style.setProperty("--black2", "#f5f5f5");
-    warna = "terbalik";
-    modeText.textContent = "Mode Malam"; // Mengubah teks menjadi Mode Malam
+    modeText.textContent = "Mode Malam";
   } else {
     root.style.setProperty("--white", "#ffffff");
     root.style.setProperty("--black1", "#000000");
     root.style.setProperty("--black2", "#0f0f0f");
-    warna = "normal";
-    modeText.textContent = "Mode Siang"; // Mengubah teks menjadi Mode Siang
+    modeText.textContent = "Mode Siang";
   }
 }
+
+// Fungsi untuk mengganti tema dan teks
+function toggleTema() {
+  warna = (warna == "normal") ? "terbalik" : "normal";
+  localStorage.setItem("tema", warna); // Menyimpan status tema ke localStorage
+  updateTheme(); // Memperbarui tema sesuai dengan status
+}
+
+// Memperbarui tema saat halaman dimuat
+updateTheme();
 
 // Menambahkan event listener untuk tombol terang
 terang.addEventListener("click", function() {
   toggleTema();
-
-  // Mengubah rotasi tombol terang dengan CSS transform
   rotasi += 180; // Menambahkan 180 derajat ke rotasi
-  terang.style.transform = `rotate(${rotasi}deg)`; // Mengatur properti transform
-
+  terang.style.transform = rotate(${rotasi}deg); // Mengatur properti transform
   // Mengganti logo
   if (logoStatus == "logo1") {
     logo.src = "TS LOGO2.png";
@@ -381,11 +383,6 @@ terang.addEventListener("click", function() {
 kontras.addEventListener("click", function(event) {
   event.preventDefault(); 
   toggleTema();
-});
-
-
-document.querySelector('.nav-container .navigation .logo a.cari').addEventListener('click', function() {
-
 });
 
 
