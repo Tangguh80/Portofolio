@@ -681,7 +681,7 @@ body {
       width: 900px; 
       display: block;
       overflow-y: hidden;
-      height: 200%;
+      height: 100%;
       overflow: hidden;
       background-color: var(--black2);
       position: fixed;
