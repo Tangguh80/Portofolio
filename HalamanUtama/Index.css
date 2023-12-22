@@ -690,7 +690,10 @@ body {
       transition: left 0.3s; 
   }
 
-  
+    .no-scroll {
+    overflow: hidden;
+  }
+   
   .sidebar-visible {
       left: 0; 
   }
