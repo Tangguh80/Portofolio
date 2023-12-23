@@ -121,7 +121,7 @@ menuToggle.addEventListener("click", toggleSidebar);
 function checkWidth() {
   if (window.innerWidth <= 892) {
     if (!sidebar.classList.contains('sidebar-visible')) {
-      navigation.style.display = "none";
+      navigation.style.display = "block";
       body.classList.remove('no-scroll'); // Pastikan scroll diaktifkan
     }
   } else {
