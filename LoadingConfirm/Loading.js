@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check if container2 is present
     if (container2) {
         // Wait for the container2 and overlay animation to start and then pause all animations
-        setTimeout(pauseAllAnimations, 3500); // Adjust the time as per your requirement
+        setTimeout(pauseAllAnimations, 4000); // Adjust the time as per your requirement
     }
 
     // Event listener for the agree button
