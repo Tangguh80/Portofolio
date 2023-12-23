@@ -494,7 +494,7 @@ body {
 
 /*====================================== Side bar ====================================*/
 
-  @import url('https://fonts.googleapis.com/css2?family=Knewave:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave:wght@300;400;500;600;700&display=swap');
   
   .sidebar ul li a ion-icon {
     margin-right: 10px;  
@@ -544,6 +544,7 @@ body {
     display: none;
   }
 
+
   .judul-sidebar {
       position: absolute;
       left: 10px;
@@ -554,7 +555,6 @@ body {
       cursor: text;
       color: var(--white);
   }
-
 /*====================================== Notif active ====================================*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
@@ -650,60 +650,164 @@ body {
       top: 0px;
       height: 65px;
     }
+
+    .navigation {
+      position: relative;
+      top: -2px;
+      left: -90px; 
+    }
+
+    .navigation a {
+      position: relative; 
+      text-decoration: none;
+      color: var(--white); 
+      font-size: 12px;
+    }
+    
     .social-icons, .email-container {
       display: none;
     }
  
 
     .menu-toggle {
-      position: fixed;
-      display: flex;
-      justify-content: center; 
-      align-items: center; 
-      cursor: pointer;  
-      color: var(--white);
-      top: 31px; 
-      right: 18px; 
-      transform: translate(-50%, -50%); 
-      font-size: 28px;
-      z-index: 4;
+      display: none;
     }
 
-      
-
+    
 
     .sidebar-hidden {
         Display: none;
     }
           
-    .sidebar {
-      top: 0;
-      width: 900px; 
-      display: block;
-      overflow-y: hidden;
-      height: 120%;
-      overflow: hidden;
-      background-color: var(--black2);
-      position: fixed;
-      left: -900px; 
-      z-index: 3;
-      transition: left 0.3s; 
-  }
+      .logo img {
+        object-fit: cover;
+        width: 55px;
+        height: 55px;
+        margin-left: 90px;
+      }
 
-    .no-scroll {
-    overflow: hidden;
-  }
-   
-  .sidebar-visible {
-      left: 0; 
-  }
-      .navigation,
-      .search-container{
-        display: none;
+      .logo {
+        position: relative;
+        margin-left: 18px ;
+        left: 0px;
+        top: -5px;
+      }
 
+      .terang{
+          position: absolute;
+          top: 30px;
+      }
+
+      .terang ion-icon {
+        color: var(--white);
+        font-size: 20px; 
+      }
+
+      .cari {
+        position: relative;
+        top: 30px;
+        margin-left: 15px;
+      }
+
+      .cari ion-icon {
+        color: var(--white);
+        font-size: 20px;
       }
 
 
+
+
+
+      /*====================================== Search container ====================================*/
+      .search-container {
+        position: relative;
+        top: -30px;
+        padding-bottom: 0px;
+        background-color: rgba(219, 13, 13, 0);
+        margin-left: 160px;
+        width: 230px; 
+        height: 40px; 
+        padding: 10px;
+        border-radius: 70px; 
+        display: flex; 
+        padding-top: 0;
+        padding-bottom: 0;
+        cursor: none;
+        z-index: 1;
+        overflow: hidden;
+        transition: transform 0.5s ease;
+
+      }
+
+      .show-search {
+        transform: translateX(0%); /* Geser kembali ke posisi semula */
+      }
+
+
+      .search-box {
+        position: relative;
+        width: 150px; 
+        height: 25px; 
+        border-radius: 30px; 
+        top: 5px; 
+        padding-left: 20px;
+        padding-right: 40px;
+        cursor: text; 
+        z-index: 2;
+        color: var(--black1);
+        background-color: var(--white);
+        border: 2px solid var(--black1);
+        
+      }
+
+      ::placeholder {
+        font-size: 12px;
+        color: var(--black1);
+        opacity: 1;
+      }
+
+      .search-box:focus {
+        outline: none; /* Menghilangkan outline default */
+        border-color: var(--white);
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.273);
+      }
+
+
+
+
+
+      .close-search {
+        cursor: pointer;
+        margin-top: 8px; 
+        margin-left: -35px;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      .close-search ion-icon {
+          color: var(--black1);
+          font-size: 25px; 
+      }
+
+      .search-box{ 
+        transform: translateX(-120%); 
+        transition: transform 0.5s ease;
+      }
+
+      .close-search {
+        transform: translateX(-900%); 
+        transition: transform 0.5s ease;
+      }
+
+      #cv-background { 
+        position: absolute;
+        margin-top: 10PX;
+        width: 60.60px;  
+        height: 20px; 
+        background-color: var(--white);
+        right: 20PX; 
+        z-index: 1;
+      }
 
 
 /*====================================== Notif active ====================================*/
@@ -778,7 +882,118 @@ body {
 
 
 
-  @media (max-width: 480px){
+  @media (max-width: 578px){
+    .about,
+    .Experience,
+    .Projects,
+    .contact,
+    .cv,
+    .terang{
+      display: none;
+  }
+
+    .menu-toggle {
+      position: fixed;
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      cursor: pointer;  
+      color: var(--white);
+      top: 31px; 
+      right: 18px; 
+      transform: translate(-50%, -50%); 
+      font-size: 28px;
+      z-index: 4;
+    }
+
+    .sidebar {
+      top: 0;
+      width: 900px; 
+      display: block;
+      overflow-y: hidden;
+      height: 200%;
+      overflow: hidden;
+      background-color: var(--black2);
+      position: fixed;
+      left: -900px; 
+      z-index: 3;
+      scroll-behavior: unset;
+      transition: left 0.3s; 
+  }
+      .sidebar-visible {
+          left: 0; 
+      }
+
+      
+    .no-scroll {
+          overflow: hidden;
+      }
+
+      .search-box {
+        position: relative;
+        width: 100px; 
+        height: 25px; 
+        border-radius: 30px; 
+        top: 3px; 
+        padding-left: 20px;
+        padding-right: 40px;
+        cursor: text; 
+        z-index: 2;
+        color: var(--black1);
+        background-color: var(--white);
+        border: 2px solid var(--black1);
+        
+      }
+      
+      .cari {
+        position: relative;
+        top: 32px;
+        margin-left: 10px;
+      }
+
+      .logo img {
+        object-fit: cover;
+        width: 50px;
+        height: 50px;
+        margin-left: 90px;
+      }
+
+      .logo {
+        position: relative;
+        margin-left: 25px ;
+        left: 0px;
+        top: -7px;
+      }
+
+      .close-search {
+        cursor: pointer;
+        margin-top: 6px; 
+        margin-left: -35px;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+/*====================================== Search container ====================================*/
+      .search-container {
+        position: relative;
+        top: -10px;
+        padding-bottom: 0px;
+        background-color: rgba(219, 13, 13, 0);
+        margin-left: 110px;
+        width: 230px; 
+        height: 40px; 
+        padding: 10px;
+        border-radius: 70px; 
+        display: flex; 
+        padding-top: 0;
+        padding-bottom: 0;
+        cursor: none;
+        z-index: 1;
+        overflow: hidden;
+        transition: transform 0.5s ease;
+
+      }
+
 /*====================================== Container1 ====================================*/
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Oswald:wght@700&display=swap');
