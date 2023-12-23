@@ -931,10 +931,10 @@ body {
 
       .search-box {
         position: relative;
-        width: 100px; 
-        height: 25px; 
-        border-radius: 30px; 
-        top: 3px; 
+        width: 130px; 
+        height: 28px; 
+        border-radius: 17px; 
+        top: 2.5px; 
         padding-left: 20px;
         padding-right: 40px;
         cursor: text; 
@@ -947,9 +947,21 @@ body {
       
       .cari {
         position: relative;
-        top: 32px;
+        top: 35px;
         margin-left: 10px;
       }
+
+      .cari ion-icon {
+        color: var(--white);
+        font-size: 24px;
+      }
+
+      ::placeholder {
+        font-size: 14px;
+        color: var(--black1);
+        opacity: 1;
+      }
+
 
       .logo img {
         object-fit: cover;
@@ -962,12 +974,12 @@ body {
         position: relative;
         margin-left: 25px ;
         left: 0px;
-        top: -7px;
+        top: -11px;
       }
 
       .close-search {
         cursor: pointer;
-        margin-top: 6px; 
+        margin-top: 6.5px; 
         margin-left: -35px;
         z-index: 2;
         cursor: pointer;
@@ -976,7 +988,7 @@ body {
 /*====================================== Search container ====================================*/
       .search-container {
         position: relative;
-        top: -10px;
+        top: -15px;
         padding-bottom: 0px;
         background-color: rgba(219, 13, 13, 0);
         margin-left: 110px;
