@@ -40,7 +40,7 @@ body {
     height: 110px;
     border: 13px solid var(--white);
     z-index: 1;
-    background: rgba(0, 0, 0, 0.768); /* Atau warna/gambar pilihan Anda */
+    background: var(--white);
     animation: sweepSquare 2.5s ease forwards, sweepSquareReverse 1s ease 5.5s forwards;
     transform: rotate(45deg); /* Menetapkan rotasi awal */
 }
@@ -50,10 +50,11 @@ body {
     height: 167px;
     border: 20px solid var(--white);
     z-index: 0;
-    background: rgba(0, 0, 0, 0.768); /* Atau warna/gambar pilihan Anda */
+    background: var(--white);
     animation: sweepSquare2 2.5s ease forwards, sweepSquare2Reverse 1s ease 5.5s forwards;
     transform: rotate(45deg); /* Menetapkan rotasi awal */
 }
+
 
 @keyframes sweepSquare {
     0% {
