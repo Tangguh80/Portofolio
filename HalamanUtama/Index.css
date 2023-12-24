@@ -65,7 +65,7 @@ body {
 }
 
 .highlight {
-  background-color: var(--blue);
+  background-color: greenyellow;
   color: var(--white);
 }
 
