@@ -52,8 +52,16 @@ body {
   box-sizing: border-box; 
   border-bottom: 2px solid var(--white);
   box-shadow: 0 1px 7px 0 var(--white);
-  transition: all 0.3s;
+  transform: translateY(-100%); /* Mulai dari luar layar di atas */
+  opacity: 0; /* Awalnya transparan */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; 
   z-index: 1;
+}
+
+
+.nav-container.show {
+  transform: translateY(0); 
+  opacity: 1; 
 }
 
 .highlight {
@@ -152,9 +160,13 @@ body {
 }
 
 ::placeholder {
-  color: var(--black1);
+  font-size: 12px;
+  color: var(--black1, black);
   opacity: 1;
+  transition: opacity 0.3s;
 }
+
+
 
 .search-box:focus {
   outline: none; /* Menghilangkan outline default */
