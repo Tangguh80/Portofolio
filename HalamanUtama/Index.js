@@ -78,11 +78,11 @@ window.addEventListener('load', function () {
 
 document.addEventListener("DOMContentLoaded", function() {
   setTimeout(function() {
-    var navigation = document.querySelector(".navigation ul");
-    navigation.style.opacity = "1"; // Atur opacity menjadi 1 untuk munculkan elemen
-    navigation.style.transform = "translateY(0)"; // Kembalikan posisi ke normal
-  }, 1500); // Tunggu 2 detik sebelum memulai animasi
+    var navigation = document.querySelector(".nav-container");
+    navigation.classList.add("show"); // Tambahkan kelas 'show' untuk memunculkan elemen
+  }, 100); // Tunggu 1,5 detik sebelum memulai animasi
 });
+
 
 
 
@@ -220,54 +220,63 @@ document.addEventListener('DOMContentLoaded', () => {
 /*====================================== memeunculkan search box =========================================*/
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    const searchBox = document.querySelector('.search-box');
-    const closeSearch = document.querySelector('.close-search');
-    const cariButton = document.querySelector('.cari');
-    const searchContainer = document.querySelector('.search-container');
-    const navigationLink = document.querySelector('.navigation a'); // Assuming this is the correct selector
+  const searchBox = document.querySelector('.search-box');
+  const closeSearch = document.querySelector('.close-search');
+  const cariButton = document.querySelector('.cari');
+  const searchContainer = document.querySelector('.search-container');
+  const navigationLink = document.querySelector('.navigation a'); // Assuming this is the correct selector
 
-    // Toggle search box on clicking 'cari' button
-    cariButton.addEventListener('click', function() {
-        if (searchContainer.classList.contains('active')) {
-            hideSearchBox();
-        } else {
-            showSearchBox();
-        }
-    });
+  // Toggle search box on clicking 'cari' button
+  cariButton.addEventListener('click', function() {
+      if (searchContainer.classList.contains('active')) {
+          hideSearchBox();
+      } else {
+          showSearchBox();
+      }
+  });
 
-    // Function to show the search box
-    function showSearchBox() {
-        searchContainer.classList.add('active');
-        searchBox.style.transform = 'translateX(0%)';
-        closeSearch.style.transform = 'translateX(0%)';
-        navigationLink.style.zIndex = '1'; // Move .navigation a to the back
-    }
+  // Function to show the search box
+  function showSearchBox() {
+      searchContainer.classList.add('active');
+      searchBox.style.transform = 'translateX(0%)';
+      closeSearch.style.transform = 'translateX(0%)';
+      navigationLink.style.zIndex = '1'; // Move .navigation a to the back
+      searchBox.focus(); // Automatically focus on the search box
+  }
 
-    // Function to hide the search box
-    function hideSearchBox() {
-        searchBox.style.transform = 'translateX(-120%)';
-        closeSearch.style.transform = 'translateX(-900%)';
-        setTimeout(function() {
-            searchContainer.classList.remove('active');
-        }, 300); // Assumed duration of the animation
-    }
+  // Function to hide the search box
+  function hideSearchBox() {
+      searchBox.style.transform = 'translateX(-120%)';
+      closeSearch.style.transform = 'translateX(-900%)';
+      setTimeout(function() {
+          searchContainer.classList.remove('active');
+      }, 300); // Assumed duration of the animation
+  }
 
-    closeSearch.addEventListener('click', hideSearchBox);
+  // Hide search box if click outside or on close button
+  document.addEventListener('click', function(event) {
+      if (!searchContainer.contains(event.target) && !cariButton.contains(event.target)) {
+          hideSearchBox();
+      }
+  });
 
-    // Hide search box and adjust navigation link based on viewport size
-    function adjustLayoutBasedOnViewport() {
-        const viewportWidth = window.innerWidth;
-        if (viewportWidth <= 1121) {
-            hideSearchBox();
-            navigationLink.style.zIndex = '1'; // Move .navigation a to the front
-        }
-    }
+  closeSearch.addEventListener('click', hideSearchBox);
 
-    window.addEventListener('resize', adjustLayoutBasedOnViewport);
+  // Hide search box and adjust navigation link based on viewport size
+  function adjustLayoutBasedOnViewport() {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth <= 1121) {
+          hideSearchBox();
+          navigationLink.style.zIndex = '1'; // Move .navigation a to the front
+      }
+  }
 
-    // Initial adjustment on page load
-    adjustLayoutBasedOnViewport();
+  window.addEventListener('resize', adjustLayoutBasedOnViewport);
+
+  // Initial adjustment on page load
+  adjustLayoutBasedOnViewport();
 });
+
 
 
 
@@ -339,12 +348,20 @@ let modeText = kontras.querySelector("span");
 // Mendefinisikan variabel
 let warna = localStorage.getItem("tema") || "normal"; // Memuat status tema dari localStorage atau 'normal'
 let rotasi = 0;
-let logoStatus = "logo1";
+
+// Fungsi untuk mengganti sumber gambar logo berdasarkan tema
+function updateLogoSource() {
+  if (warna === "terbalik") {
+    logo.src = "TS LOGO2.png"; // Logo untuk mode terbalik (warna putih)
+  } else {
+    logo.src = "TS LOGO.png"; // Logo untuk mode normal (warna hitam)
+  }
+}
 
 // Fungsi untuk memperbarui tema sesuai dengan status tema
 function updateTheme() {
   let root = document.documentElement;
-  if (warna == "terbalik") {
+  if (warna === "terbalik") {
     root.style.setProperty("--white", "#000000");
     root.style.setProperty("--black1", "#ffffff");
     root.style.setProperty("--black2", "#f5f5f5");
@@ -355,11 +372,12 @@ function updateTheme() {
     root.style.setProperty("--black2", "#0f0f0f");
     modeText.textContent = "Mode Siang";
   }
+  updateLogoSource(); // Memperbarui sumber gambar logo setiap kali tema diubah
 }
 
 // Fungsi untuk mengganti tema dan teks
 function toggleTema() {
-  warna = (warna == "normal") ? "terbalik" : "normal";
+  warna = (warna === "normal") ? "terbalik" : "normal";
   localStorage.setItem("tema", warna); // Menyimpan status tema ke localStorage
   updateTheme(); // Memperbarui tema sesuai dengan status
 }
@@ -372,14 +390,6 @@ terang.addEventListener("click", function() {
   toggleTema();
   rotasi += 180; // Menambahkan 180 derajat ke rotasi
   terang.style.transform = `rotate(${rotasi}deg)`; // Mengatur properti transform
-  // Mengganti logo
-  if (logoStatus == "logo1") {
-    logo.src = "TS LOGO2.png";
-    logoStatus = "logo2";
-  } else {
-    logo.src = "TS LOGO.png";
-    logoStatus = "logo1";
-  }
 });
 
 // Menambahkan event listener untuk tombol kontras
@@ -389,8 +399,17 @@ kontras.addEventListener("click", function(event) {
 });
 
 
-
-
+// Redirect ke halaman loading yang sesuai saat di-refresh
+window.addEventListener('load', (event) => {
+  // Cek apakah halaman di-refresh
+  if (sessionStorage.getItem("isReloaded")) {
+    sessionStorage.removeItem("isReloaded"); // Hapus flag agar tidak terus kembali ke loading
+    let loadingPage = (localStorage.getItem("tema") === "terbalik") ? "../LoadingPutih/Loading.html" : "../LoadingHitam/Loading.html";
+    window.location.href = loadingPage;
+  } else {
+    sessionStorage.setItem("isReloaded", true);
+  }
+});
 
 
 
@@ -440,6 +459,57 @@ function moveNotification(topValue) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*====================================== Pleacholder ai ====================================*/
+document.addEventListener("DOMContentLoaded", function() {
+  const phrases = ["Cari kata...", "Masukkan kata...", "Ketik di sini..."];
+  const inputBox = document.querySelector('.search-box');
+  let currentPhrase = 0;
+  let currentLetter = 0;
+  let typingDelay = 100;
+  let erasingDelay = 50;
+  let newTextDelay = 2000; // Delay between phrases
+
+  function type() {
+      if (currentLetter < phrases[currentPhrase].length) {
+          inputBox.placeholder += phrases[currentPhrase].charAt(currentLetter);
+          currentLetter++;
+          setTimeout(type, typingDelay);
+      } else {
+          setTimeout(erase, newTextDelay);
+      }
+  }
+
+  function erase() {
+      if (currentLetter > 0) {
+          inputBox.placeholder = phrases[currentPhrase].substring(0, currentLetter-1);
+          currentLetter--;
+          setTimeout(erase, erasingDelay);
+      } else {
+          currentPhrase = (currentPhrase + 1) % phrases.length;
+          setTimeout(type, typingDelay + 500);
+      }
+  }
+
+  setTimeout(type, newTextDelay);
+});
 
 
 
