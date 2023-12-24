@@ -369,12 +369,12 @@ function updateTheme() {
     root.style.setProperty("--white", "#000000");
     root.style.setProperty("--black1", "#ffffff");
     root.style.setProperty("--black2", "#f5f5f5");
-    modeText.textContent = "Mode Malam";
+    modeText.textContent = "Mode Gelap";
   } else {
     root.style.setProperty("--white", "#ffffff");
     root.style.setProperty("--black1", "#000000");
     root.style.setProperty("--black2", "#0f0f0f");
-    modeText.textContent = "Mode Siang";
+    modeText.textContent = "Mode Terang";
   }
   updateLogoSource(); // Memperbarui sumber gambar logo setiap kali tema diubah
 }
