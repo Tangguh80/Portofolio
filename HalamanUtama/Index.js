@@ -218,64 +218,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /*====================================== memeunculkan search box =========================================*/
-
 document.addEventListener('DOMContentLoaded', (event) => {
-  const searchBox = document.querySelector('.search-box');
-  const closeSearch = document.querySelector('.close-search');
-  const cariButton = document.querySelector('.cari');
-  const searchContainer = document.querySelector('.search-container');
-  const navigationLink = document.querySelector('.navigation a'); // Assuming this is the correct selector
+    const searchBox = document.querySelector('.search-box');
+    const closeSearch = document.querySelector('.close-search');
+    const cariButton = document.querySelector('.cari');
+    const searchContainer = document.querySelector('.search-container');
+    const navigationLink = document.querySelector('.navigation a'); // Assuming this is the correct selector
 
-  // Toggle search box on clicking 'cari' button
-  cariButton.addEventListener('click', function() {
-      if (searchContainer.classList.contains('active')) {
-          hideSearchBox();
-      } else {
-          showSearchBox();
-      }
-  });
+    // Toggle search box on clicking 'cari' button
+    cariButton.addEventListener('click', function() {
+        if (searchContainer.classList.contains('active')) {
+            hideSearchBox();
+        } else {
+            showSearchBox();
+        }
+    });
 
-  // Function to show the search box
-  function showSearchBox() {
-      searchContainer.classList.add('active');
-      searchBox.style.transform = 'translateX(0%)';
-      closeSearch.style.transform = 'translateX(0%)';
-      navigationLink.style.zIndex = '1'; // Move .navigation a to the back
-      searchBox.focus(); // Automatically focus on the search box
-  }
+    // Function to show the search box
+    function showSearchBox() {
+        searchContainer.classList.add('active');
+        searchBox.style.transform = 'translateX(0%)';
+        closeSearch.style.transform = 'translateX(0%)';
+        navigationLink.style.zIndex = '1'; // Move .navigation a to the back
+        searchBox.focus(); // Automatically focus on the search box
+    }
 
-  // Function to hide the search box
-  function hideSearchBox() {
-      searchBox.style.transform = 'translateX(-120%)';
-      closeSearch.style.transform = 'translateX(-900%)';
-      setTimeout(function() {
-          searchContainer.classList.remove('active');
-      }, 300); // Assumed duration of the animation
-  }
+    // Function to hide the search box
+    function hideSearchBox() {
+        searchBox.style.transform = 'translateX(-120%)';
+        closeSearch.style.transform = 'translateX(-900%)';
+        setTimeout(function() {
+            searchContainer.classList.remove('active');
+        }, 300); // Assumed duration of the animation
+    }
 
-  // Hide search box if click outside or on close button
-  document.addEventListener('click', function(event) {
-      if (!searchContainer.contains(event.target) && !cariButton.contains(event.target)) {
-          hideSearchBox();
-      }
-  });
+    // Event listener for searchBox to stay open while it is focused
+    searchBox.addEventListener('focus', function() {
+        searchContainer.classList.add('active');
+    });
 
-  closeSearch.addEventListener('click', hideSearchBox);
+    searchBox.addEventListener('blur', function() {
+        if (!searchBox.value) {
+            hideSearchBox();
+        }
+    });
 
-  // Hide search box and adjust navigation link based on viewport size
-  function adjustLayoutBasedOnViewport() {
-      const viewportWidth = window.innerWidth;
-      if (viewportWidth <= 1121) {
-          hideSearchBox();
-          navigationLink.style.zIndex = '1'; // Move .navigation a to the front
-      }
-  }
+    closeSearch.addEventListener('click', hideSearchBox);
 
-  window.addEventListener('resize', adjustLayoutBasedOnViewport);
+    // Hide search box and adjust navigation link based on viewport size
+    function adjustLayoutBasedOnViewport() {
+        const viewportWidth = window.innerWidth;
+        if (viewportWidth <= 1121) {
+            hideSearchBox();
+            navigationLink.style.zIndex = '1'; // Move .navigation a to the front
+        }
+    }
 
-  // Initial adjustment on page load
-  adjustLayoutBasedOnViewport();
+    window.addEventListener('resize', adjustLayoutBasedOnViewport);
+
+    // Initial adjustment on page load
+    adjustLayoutBasedOnViewport();
 });
+
 
 
 
