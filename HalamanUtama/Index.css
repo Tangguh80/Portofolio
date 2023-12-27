@@ -5,6 +5,7 @@
      --gray :#f5f5f5;
      --black1 :#000000;
      --black2 :rgb(15, 15, 15);
+     --Green  : rgb(48, 183, 48);
  }
 
 body {
@@ -230,7 +231,7 @@ body {
 }
 
 .no-hover-underline {
-  text-decoration: none !important; /* Remove underline */
+  text-decoration: none !important; 
 }
 
 
@@ -239,19 +240,45 @@ body {
   text-decoration: none;
   color: var(--white); 
   font-size: 16px;
+  font-weight: bold;
   font-family: 'Poppins', sans-serif;
   transition: color 0.3s ease;
   z-index: 2;
+  padding-bottom: 5px;
 }
 
 
-
+ul li a.cv::before {
+  display: none;
+}
 
 .menu-toggle
 .sidebar {
   display: none;
 }
 
+.about.active {
+  color: var(--Green);
+  font-weight: bold;
+
+}
+
+
+ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--Green);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+ul li a:hover::before {
+  left: 0;
+  width: 100%;
+}
 
 
 
@@ -507,6 +534,12 @@ body {
   text-align: justify;  
 }
 
+
+
+
+
+
+
 /*====================================== Side bar ====================================*/
 
 @import url('https://fonts.googleapis.com/css2?family=Knewave:wght@300;400;500;600;700&display=swap');
@@ -649,8 +682,66 @@ body {
   position: absolute;
   top: 50%; 
   left: 50%; 
+  cursor: default;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  will-change: transform, opacity;
   transform: translate(-50%, -50%); 
 }
+
+
+
+
+.overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor:default;
+  background-color: var(--black2);
+  z-index: 5; 
+  opacity: 0; /* Start with a transparent overlay */
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.back-icon {
+  position: absolute;
+  top: 20px; 
+  left: 20px; 
+  font-size: 30px; 
+  color: var(--white);
+  cursor: pointer; 
+}
+
+.back-text {
+  position: absolute;
+  top: 23PX;
+  margin-left: 60px;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+.photo.expanded {
+  width: auto;  
+  max-width: 60%; 
+  max-height: 60%; 
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 5; 
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1; 
+}
+
 
 .container-border1, .container-border2 {
   position: absolute;
@@ -694,18 +785,21 @@ body {
   right: 17px;
   justify-content: center;
   align-items: center; 
-  display: none;
+  display: flex;
   padding: -1px;
   border: none;
+  display: none;
   background-color: transparent;
   border-radius: 0;
   cursor: pointer; 
   transition: all 0.3s ease;
 }
 
+
 .container-photo:hover .expand-button {
-  display: flex; 
+  display: block;
 }
+
 
 .expand-button ion-icon {
   font-size: 25px; 
@@ -1337,16 +1431,153 @@ body {
 }
 
 /*====================================== Container Photo ====================================*/
-.container-photo {
-  position: absolute; 
-  top: 830px;
-  left: 50%; 
-  transform: translate(-50%, -50%); /* Adjust position to exact center */
-  background-color: var(--black2);
-  width: 320px; /* Or any size you want */
-  height: 320px; /* Or any size you want */
-  z-index: 0;
+.parent-element {
+  position: relative;
+  height: 100%; /* Atau tinggi tertentu */
 }
+
+.container-photo {
+  position: absolute;
+  top: 830px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: transparent;
+  width: 320px;
+  height: 320px;
+}
+
+
+.photo {
+  width: 90%; 
+  height: auto;
+  z-index: 1;
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  cursor: default;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  will-change: transform, opacity;
+  transform: translate(-50%, -50%); 
+}
+
+
+
+
+.overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor:default;
+  background-color: var(--black2);
+  z-index: 5; 
+  opacity: 0; /* Start with a transparent overlay */
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.back-icon {
+  position: absolute;
+  top: 20px; 
+  left: 20px; 
+  font-size: 30px; 
+  color: var(--white);
+  cursor: pointer; 
+}
+
+.back-text {
+  position: absolute;
+  top: 23PX;
+  margin-left: 60px;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+.photo.expanded {
+  width: auto;  
+  max-width: 60%; 
+  max-height: 60%; 
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 5; 
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1; 
+}
+
+
+.container-border1, .container-border2 {
+  position: absolute;
+  border: 5px solid var(--white); 
+  width: 305px; 
+  height: 305px; 
+  z-index: 2; 
+  background-color: transparent; 
+  transition: all 0.3s ease;
+}
+
+.container-border1 {
+  top: 13px; 
+  left: 11px; 
+}
+
+.container-border2 {
+  top: -7px; 
+  left: -7px; 
+}
+
+
+.container-photo:hover .container-border1 {
+  width: 282px; 
+  height: 282px;
+  top: 13px; 
+  left: 13px; 
+}
+
+.container-photo:hover .container-border2 {
+  width: 282px; 
+  height: 282px;
+  top: 13px; 
+  left: 13px; 
+}
+
+.expand-button {
+  position: absolute;
+  z-index: 10; 
+  top: 17px; 
+  right: 17px;
+  justify-content: center;
+  align-items: center; 
+  display: flex;
+  padding: -1px;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  cursor: pointer; 
+  transition: all 0.3s ease;
+}
+
+.container-photo:hover .expand-button {
+  display: flex; 
+}
+
+.expand-button ion-icon {
+  font-size: 25px; 
+  color: greenyellow;
+}
+
+
 
 
   }
