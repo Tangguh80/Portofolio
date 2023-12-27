@@ -533,3 +533,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+/*====================================== Expanded photo ====================================*/
+document.addEventListener('DOMContentLoaded', function() {
+  var expandButton = document.querySelector('.expand-button');
+  var photo = document.querySelector('.photo');
+  var overlay = document.querySelector('.overlay');
+  var backButton = document.querySelector('.back-button'); // Tombol "Kembali"
+
+  expandButton.addEventListener('click', function() {
+    photo.classList.toggle('expanded');
+    overlay.classList.toggle('active');
+    expandButton.style.display = photo.classList.contains('expanded') ? 'none' : 'flex';
+  });
+
+  // Menggunakan backButton untuk menutup, bukan overlay
+  backButton.addEventListener('click', function() {
+    photo.classList.remove('expanded');
+    overlay.classList.remove('active');
+    expandButton.style.display = 'flex';
+  });
+});
