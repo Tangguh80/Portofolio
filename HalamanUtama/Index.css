@@ -1438,7 +1438,7 @@ ul li a:hover::before {
 
 .container-photo {
   position: absolute;
-  top: 830px;
+  margin-top: 780px;
   left: 0;
   right: 0;
   bottom: 0;
