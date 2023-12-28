@@ -13,6 +13,7 @@ body {
  padding: 0;
  cursor: none;
  background-color: var(--black2);
+ overflow-x: hidden;
 
 }
 
@@ -703,7 +704,13 @@ background-color: var(--black2);
 z-index: 5; 
 opacity: 0; /* Start with a transparent overlay */
 transition: opacity 0.3s ease;
+overflow-y: hidden;
 will-change: opacity;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
 }
 
 .back-icon {
@@ -1209,6 +1216,7 @@ z-index: 0;
    display: block;
    overflow-y: hidden;
    height: 200%;
+   cursor: default;
    overflow: hidden;
    background-color: var(--black2);
    position: fixed;
@@ -1434,7 +1442,7 @@ line-height: 1.5;
 /*====================================== Container Photo ====================================*/
 .container-photo {
   position: absolute;
-  top: 820px;
+  top: 800px;
   bottom: 0;
   left: 0;
   right: 0;
