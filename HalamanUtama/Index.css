@@ -1432,153 +1432,29 @@ line-height: 1.5;
 }
 
 /*====================================== Container Photo ====================================*/
-.parent-element {
-position: relative;
-height: 100%; /* Atau tinggi tertentu */
-}
-
 .container-photo {
-position: absolute;
-top: 790px;
-left: 0;
-right: 0;
-bottom: 0;
-margin: auto;
-background-color: transparent;
-width: 320px;
-height: 320px;
+  position: absolute;
+  top: 800px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: var(--black2);
+  width: 320px;
+  height: 320px;
 }
-
-
-.photo {
-width: 90%; 
-height: auto;
-z-index: 1;
-position: absolute;
-top: 50%; 
-left: 50%; 
-cursor: default;
-transition: transform 0.3s ease, opacity 0.5s ease;
-will-change: transform, opacity;
-transform: translate(-50%, -50%); 
-}
-
-
 
 
 .overlay {
-display: none; 
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-cursor:default;
-background-color: var(--black2);
-z-index: 6; 
-opacity: 0; /* Start with a transparent overlay */
-transition: opacity 0.3s ease;
-will-change: opacity;
-}
+  z-index: 6; 
 
-.back-icon {
-position: absolute;
-top: 20px; 
-left: 20px; 
-font-size: 30px; 
-color: var(--white);
-cursor: pointer; 
-}
+  }
 
-.back-text {
-position: absolute;
-top: 23PX;
-margin-left: 60px;
-color: var(--white);
-font-family: 'Poppins', sans-serif;
-cursor: pointer;
-font-size: 20px;
-}
+  .photo.expanded {
+  z-index: 7;
+    }
+  
 
-
-.photo.expanded {
-width: auto;  
-max-width: 60%; 
-max-height: 60%; 
-position: fixed; 
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%) scale(1.2);
-z-index: 6; 
-}
-
-.overlay.active {
-display: block;
-opacity: 1; 
-}
-
-
-
-
-.container-border1, .container-border2 {
-position: absolute;
-border: 5px solid var(--white); 
-width: 305px; 
-height: 305px; 
-z-index: 2; 
-background-color: transparent; 
-transition: all 0.3s ease;
-}
-
-.container-border1 {
-top: 13px; 
-left: 11px; 
-}
-
-.container-border2 {
-top: -7px; 
-left: -7px; 
-}
-
-
-.container-photo:hover .container-border1 {
-width: 282px; 
-height: 282px;
-top: 13px; 
-left: 13px; 
-}
-
-.container-photo:hover .container-border2 {
-width: 282px; 
-height: 282px;
-top: 13px; 
-left: 13px; 
-}
-
-.expand-button {
-position: absolute;
-z-index: 3; 
-top: 17px; 
-right: 17px;
-justify-content: center;
-align-items: center; 
-display: flex;
-padding: -1px;
-border: none;
-background-color: transparent;
-border-radius: 0;
-cursor: pointer; 
-transition: all 0.3s ease;
-}
-
-.container-photo:hover .expand-button {
-display: flex; 
-}
-
-.expand-button ion-icon {
-font-size: 25px; 
-color: greenyellow;
-}
 
 
 
