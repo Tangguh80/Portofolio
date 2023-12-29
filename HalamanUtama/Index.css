@@ -1336,7 +1336,7 @@ to {
 position: absolute;
 background-color: transparent;
 text-align: left;
-width: 340px;
+width: 350px;
 margin-top: 90px;
 margin-left: 10px;
 margin-right: 10px;
@@ -1446,7 +1446,7 @@ line-height: 1.5;
 /*====================================== Container Photo ====================================*/
 .container-photo {
   position: absolute;
-  top: 850px;
+  top: 830px;
   bottom: 0;
   left: 0;
   right: 0;
