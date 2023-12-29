@@ -858,12 +858,14 @@ color: greenyellow;
 
 @media (max-width: 892px){
  .trail {
+  overflow-x: hidden;
    z-index: 4;
    
  }
  .nav-container{
    top: 0px;
    height: 65px;
+   overflow-x: hidden;
    z-index: 4;
  }
 
@@ -1196,6 +1198,7 @@ z-index: 0;
    display: none;
 }
 
+
  .menu-toggle {
    position: fixed;
    display: flex;
@@ -1331,9 +1334,10 @@ to {
 
 .container {
 position: absolute;
-background-color: var(--black2);
+background-color: transparent;
 text-align: left;
-margin-top: 120px;
+width: 340px;
+margin-top: 90px;
 margin-left: 10px;
 margin-right: 10px;
 padding: 20px;
@@ -1349,8 +1353,8 @@ line-height: 1.5;
 
 
 .green-text {
-color: #00FF00;
-font-size: 18px;
+color: var(--Green);
+font-size: 16px;
 font-weight: bold;
 font-family: 'Poppins', sans-serif;
 }
@@ -1358,7 +1362,7 @@ font-family: 'Poppins', sans-serif;
 
 .gray-text {
 color: var(--white);
-font-size: 30px;
+font-size: 28px;
 font-family: 'Poppins', sans-serif;
 font-weight: 900; 
 }
@@ -1366,7 +1370,7 @@ font-weight: 900;
 
 .white-text {
 color: grey;
-font-size: 24px;
+font-size: 22px;
 font-style: italic;
 font-weight: 700; 
 font-family: 'Poppins', sans-serif;
@@ -1442,7 +1446,7 @@ line-height: 1.5;
 /*====================================== Container Photo ====================================*/
 .container-photo {
   position: absolute;
-  top: 850px;
+  top: 800px;
   bottom: 0;
   left: 0;
   right: 0;
