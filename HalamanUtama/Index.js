@@ -553,3 +553,71 @@ document.addEventListener('DOMContentLoaded', function() {
     expandButton.style.display = 'flex';
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*====================================== slide carousel ====================================*/
+let currentSlideIndex = 0; // indeks slide saat ini
+const slides = document.querySelectorAll(
+  ".container-carousel > div:not(.left-slide, .right-slide)"
+); // pilih semua slide
+
+function updateSlidePosition() {
+  slides.forEach((slide, index) => {
+    if (index === currentSlideIndex) {
+      slide.style.transform = "translate(-50%, -50%)"; // Slide aktif ke tengah
+    } else if (index < currentSlideIndex) {
+      slide.style.transform = "translate(calc(-150% - 100px), -50%)"; // Slide lain ke kiri dengan jarak tambahan
+    } else {
+      slide.style.transform = "translate(calc(150% + 100px), -50%)"; // Slide lain ke kanan dengan jarak tambahan
+    }
+  });
+}
+
+// Atur posisi slide saat pertama kali
+updateSlidePosition();
+
+document
+  .querySelector(".right-slide")
+  .addEventListener("click", function () {
+    if (currentSlideIndex < slides.length - 1) {
+      currentSlideIndex++; // pindah ke slide berikutnya
+    } else {
+      currentSlideIndex = 0; // kembali ke slide pertama
+    }
+    updateSlidePosition();
+  });
+
+document
+  .querySelector(".left-slide")
+  .addEventListener("click", function () {
+    if (currentSlideIndex > 0) {
+      currentSlideIndex--; // pindah ke slide sebelumnya
+    } else {
+      currentSlideIndex = slides.length - 1; // pindah ke slide terakhir
+    }
+    updateSlidePosition();
+  });
+
