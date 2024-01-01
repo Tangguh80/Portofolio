@@ -1594,10 +1594,10 @@ line-height: 1.5;
 /*====================================== carousel  ====================================*/
 .container-carousel {
   position: absolute;
-  top: 250%; 
+  top: 270%; 
   left: 50%; 
   transform: translate(-50%, -50%); 
-  width: 79%;
+  width: 78%;
   border-radius: 15px;
   height: 530px;
   background-color: transparent;
