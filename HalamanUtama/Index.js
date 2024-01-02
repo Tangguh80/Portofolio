@@ -621,3 +621,42 @@ document
     updateSlidePosition();
   });
 
+
+
+
+
+  let startX;
+
+  function onTouchStart(e) {
+    startX = e.touches ? e.touches[0].pageX : e.clientX;
+  }
+  
+  function onTouchMove(e) {
+    const currentX = e.touches ? e.touches[0].pageX : e.clientX;
+    const deltaX = currentX - startX;
+  
+    // Optional: Update slide position based on drag for a live effect
+  }
+  
+  function onTouchEnd(e) {
+    const endX = e.changedTouches ? e.changedTouches[0].pageX : e.clientX;
+    const deltaX = endX - startX;
+  
+    if (deltaX > 30) { // Geser ke kiri
+      // Panggil fungsi untuk mengganti slide ke kiri
+    } else if (deltaX < -30) { // Geser ke kanan
+      // Panggil fungsi untuk mengganti slide ke kanan
+    }
+  }
+  
+  // Tambahkan event listener untuk drag/swipe
+  document.addEventListener('mousedown', onTouchStart);
+  document.addEventListener('mousemove', onTouchMove);
+  document.addEventListener('mouseup', onTouchEnd);
+  
+  document.addEventListener('touchstart', onTouchStart);
+  document.addEventListener('touchmove', onTouchMove);
+  document.addEventListener('touchend', onTouchEnd);
+  
+
+
