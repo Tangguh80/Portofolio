@@ -1,10 +1,10 @@
 /*===================== Globals =================*/
 :root{
   --blue:#3d31b9;
-  --white: #fff;
-  --gray :#f5f5f5;
-  --black1 :#000000;
-  --black2 :rgb(15, 15, 15);
+  --white: #ffffff;
+  --gray :#F6F8FA;
+  --black1 :#010409;
+  --black2 :#0D1117;
   --cyan  :#00CFFA;
 }
 
@@ -1346,7 +1346,7 @@ z-index: 0;
    height: 200%;
    cursor: default;
    overflow: hidden;
-   background-color: var(--black2);
+   background-color: var(--black1);
    position: fixed;
    left: -900px; 
    z-index: 5;
@@ -1571,7 +1571,7 @@ line-height: 1.5;
 /*====================================== Container Photo ====================================*/
 .container-photo {
   position: absolute;
-  top: 830px;
+  top: 835px;
   bottom: 0;
   left: 0;
   right: 0;
