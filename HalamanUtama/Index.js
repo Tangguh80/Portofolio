@@ -579,80 +579,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /*====================================== slide carousel ====================================*/
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll(".container-carousel > div:not(.left-slide, .right-slide)");
-
-// Variabel untuk tracking gesture
-let startX, startY, endX, endY;
+let currentSlideIndex = 0; // indeks slide saat ini
+const slides = document.querySelectorAll(
+  ".container-carousel > div:not(.left-slide, .right-slide)"
+); // pilih semua slide
 
 function updateSlidePosition() {
   slides.forEach((slide, index) => {
     if (index === currentSlideIndex) {
-      slide.style.transform = "translate(-50%, -50%)";
+      slide.style.transform = "translate(-50%, -50%)"; // Slide aktif ke tengah
     } else if (index < currentSlideIndex) {
-      slide.style.transform = "translate(calc(-150% - 100px), -50%)";
+      slide.style.transform = "translate(calc(-150% - 100px), -50%)"; // Slide lain ke kiri dengan jarak tambahan
     } else {
-      slide.style.transform = "translate(calc(150% + 100px), -50%)";
+      slide.style.transform = "translate(calc(150% + 100px), -50%)"; // Slide lain ke kanan dengan jarak tambahan
     }
   });
 }
 
-// Fungsi untuk menggerakkan slide
-function moveSlideToLeft() {
-  if (currentSlideIndex > 0) {
-    currentSlideIndex--;
-  } else {
-    currentSlideIndex = slides.length - 1;
-  }
-  updateSlidePosition();
-}
-
-function moveSlideToRight() {
-  if (currentSlideIndex < slides.length - 1) {
-    currentSlideIndex++;
-  } else {
-    currentSlideIndex = 0;
-  }
-  updateSlidePosition();
-}
-
-// Event listeners untuk tombol navigasi
-document.querySelector(".right-slide").addEventListener("click", moveSlideToRight);
-document.querySelector(".left-slide").addEventListener("click", moveSlideToLeft);
-
-// Menangani touch dan mouse events
-function onTouchStart(e) {
-  startX = e.touches ? e.touches[0].pageX : e.clientX;
-  startY = e.touches ? e.touches[0].pageY : e.clientY;
-}
-
-function onTouchEnd(e) {
-  endX = e.changedTouches ? e.changedTouches[0].pageX : e.clientX;
-  endY = e.changedTouches ? e.changedTouches[0].pageY : e.clientY;
-  handleSwipe();
-}
-
-function handleSwipe() {
-  const deltaX = endX - startX;
-  const deltaY = endY - startY;
-
-  if (Math.abs(deltaX) > Math.abs(deltaY)) {
-    if (deltaX > 30) {
-      moveSlideToLeft();
-    } else if (deltaX < -30) {
-      moveSlideToRight();
-    }
-  }
-}
-
-// Tambahkan event listeners untuk swipe/drag
-document.addEventListener('touchstart', onTouchStart);
-document.addEventListener('touchend', onTouchEnd);
-document.addEventListener('mousedown', onTouchStart);
-document.addEventListener('mouseup', onTouchEnd);
-
 // Atur posisi slide saat pertama kali
 updateSlidePosition();
+
+document
+  .querySelector(".right-slide")
+  .addEventListener("click", function () {
+    if (currentSlideIndex < slides.length - 1) {
+      currentSlideIndex++; // pindah ke slide berikutnya
+    } else {
+      currentSlideIndex = 0; // kembali ke slide pertama
+    }
+    updateSlidePosition();
+  });
+
+document
+  .querySelector(".left-slide")
+  .addEventListener("click", function () {
+    if (currentSlideIndex > 0) {
+      currentSlideIndex--; // pindah ke slide sebelumnya
+    } else {
+      currentSlideIndex = slides.length - 1; // pindah ke slide terakhir
+    }
+    updateSlidePosition();
+  });
 
 
 
