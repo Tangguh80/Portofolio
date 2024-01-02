@@ -367,13 +367,13 @@ function updateTheme() {
   let root = document.documentElement;
   if (warna === "terbalik") {
     root.style.setProperty("--white", "#000000");
-    root.style.setProperty("--black1", "#ffffff");
-    root.style.setProperty("--black2", "#f5f5f5");
+    root.style.setProperty("--black1", "#F6F8FA");
+    root.style.setProperty("--black2", "#ffffff");
     modeText.textContent = "Mode Gelap";
   } else {
     root.style.setProperty("--white", "#ffffff");
-    root.style.setProperty("--black1", "#000000");
-    root.style.setProperty("--black2", "#0f0f0f");
+    root.style.setProperty("--black1", "#010409");
+    root.style.setProperty("--black2", "#0D1117");
     modeText.textContent = "Mode Terang";
   }
   updateLogoSource(); // Memperbarui sumber gambar logo setiap kali tema diubah
@@ -400,19 +400,6 @@ terang.addEventListener("click", function() {
 kontras.addEventListener("click", function(event) {
   event.preventDefault(); 
   toggleTema();
-});
-
-
-// Redirect ke halaman loading yang sesuai saat di-refresh
-window.addEventListener('load', (event) => {
-  // Cek apakah halaman di-refresh
-  if (sessionStorage.getItem("isReloaded")) {
-    sessionStorage.removeItem("isReloaded"); // Hapus flag agar tidak terus kembali ke loading
-    let loadingPage = (localStorage.getItem("tema") === "terbalik") ? "../LoadingPutih/Loading.html" : "../LoadingHitam/Loading.html";
-    window.location.href = loadingPage;
-  } else {
-    sessionStorage.setItem("isReloaded", true);
-  }
 });
 
 
