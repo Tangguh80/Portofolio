@@ -1461,7 +1461,7 @@ to {
 position: absolute;
 background-color: transparent;
 text-align: left;
-width: 350px;
+width: 320px;
 margin-top: 90px;
 margin-left: 10px;
 margin-right: 10px;
@@ -1487,7 +1487,7 @@ font-family: 'Poppins', sans-serif;
 
 .gray-text {
 color: var(--white);
-font-size: 28px;
+font-size: 25px;
 font-family: 'Poppins', sans-serif;
 font-weight: 900; 
 }
@@ -1495,7 +1495,7 @@ font-weight: 900;
 
 .white-text {
 color: grey;
-font-size: 22px;
+font-size: 20px;
 font-style: italic;
 font-weight: 700; 
 font-family: 'Poppins', sans-serif;
@@ -1571,7 +1571,7 @@ line-height: 1.5;
 /*====================================== Container Photo ====================================*/
 .container-photo {
   position: absolute;
-  top: 830px;
+  top: 824px;
   bottom: 0;
   left: 0;
   right: 0;
