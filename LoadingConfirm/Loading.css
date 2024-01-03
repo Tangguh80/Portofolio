@@ -1,10 +1,11 @@
 /*===================== Globals =================*/
 :root{
     --blue:#3d31b9;
-    --white: #fff;
-    --gray :#f5f5f5;
-    --black1 :#000000;
-    --black2 :rgb(15, 15, 15);
+    --white: #ffffff;
+    --gray :#F6F8FA;
+    --black1 :#010409;
+    --black2 :#0D1117;
+    --cyan  :#00CFFA;
 }
 
 body {
@@ -172,7 +173,7 @@ body {
     height: 100px;
     top: 0;
     left: 0;
-    animation: slideDown 0.5s ease-out 4s forwards;
+    animation: slideDown 0.5s ease-out 3.5s forwards;
     opacity: 0;
     z-index: 7;
 }
@@ -286,7 +287,7 @@ p {
 }
 
 .button-agree {
-    top: 65px;
+    top: 70px;
     right: 100px;
     background-color: rgba(8, 156, 5, 0.701);
     color: #000000;
@@ -294,12 +295,13 @@ p {
 }
 
 .button-disagree {
-    top: 65px;
-    right: 200px;
+    top: 70px;
+    right: 220px;
     background-color: rgba(220, 53, 70, 0);
     color: #000000;
+    border-radius: 80px;
+    border: 1px solid #000000;
 }
-
 
 
 
@@ -563,7 +565,7 @@ hr {
 .line1, .line2 {
     position: fixed;
     height: 2px; 
-    background-color: var(--black1);
+    background-color: var(--black2);
     box-shadow: 0 0 15px 2px var(--black1);
     z-index: -1;
     transform: scaleX(0); 
@@ -831,7 +833,7 @@ hr {
 
     .privacy-navigation {
         position: relative;
-        height: 60px;
+        height: 70px;
     }
 
     h2 {
@@ -862,26 +864,23 @@ hr {
     
     .button-agree {
         position: absolute;
-        top: 65px;
+        top: 72px;
         right: 65px;
         background-color: rgba(8, 156, 5, 0.701);
         color: #000000;
         border-radius: 80px;
         width: 90px;
-        height: 24px;
+        height: 28px;
         font-size: 13px
     }
     
     .button-disagree {
-        position: absolute;
-        top: 65px;
-        right: 165px;
+        top: 72px;
+        right: 180px;
         background-color: rgba(220, 53, 70, 0);
         color: #000000;
         border-radius: 80px;
-        width: 125px;
-        height: 25px;
-        font-size: 12px
+        border:1px solid #000000;
     }
 }    
 
@@ -1144,7 +1143,7 @@ hr {
 
     .privacy-navigation {
         position: relative;
-        height: 50px;
+        height: 60px;
 
     }
 
@@ -1176,7 +1175,7 @@ hr {
     
     .button-agree {
         position: absolute;
-        top: 57px;
+        top: 70px;
         right: 15px;
         background-color: rgba(8, 156, 5, 0.701);
         color: #000000;
@@ -1188,11 +1187,12 @@ hr {
     
     .button-disagree {
         position: absolute;
-        top: 57px;
+        top: 70px;
         right: 115px;
         background-color: rgba(220, 53, 70, 0);
         color: #000000;
         border-radius: 80px;
+        border: 1px solid #000000;
         width: 125px;
         height: 25px;
         font-size: 12px
@@ -1336,6 +1336,8 @@ hr {
 
 
 @media (max-width: 375px){
+    
+    
     
     .moreInfo-container h3 {
         position: absolute;
