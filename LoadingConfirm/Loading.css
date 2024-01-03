@@ -1188,12 +1188,12 @@ hr {
     .button-disagree {
         position: absolute;
         top: 70px;
-        right: 115px;
+        right: 120px;
         background-color: rgba(220, 53, 70, 0);
         color: #000000;
         border-radius: 80px;
         border: 1px solid #000000;
-        width: 125px;
+        width: 135px;
         height: 25px;
         font-size: 12px
     }
