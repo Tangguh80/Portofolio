@@ -405,7 +405,41 @@ kontras.addEventListener("click", function(event) {
 
 
 
+// Fungsi untuk mengarahkan ke halaman loading
+function redirectToLoadingPage() {
+  var currentUrl = window.location.href;
+  var loadingUrl = warna === "terbalik" ? "../LoadingPutih/Loading.html" : "../LoadingHitam/Loading.html";
+  sessionStorage.setItem("loadingRedirect", "true");
+  window.location.href = loadingUrl + "?from=" + encodeURIComponent(currentUrl);
+}
 
+// Event listener untuk deteksi refresh
+window.addEventListener("beforeunload", function (event) {
+  // Setel flag hanya jika bukan dari halaman loading
+  if (!new URLSearchParams(window.location.search).has("from")) {
+    sessionStorage.setItem("refresh", "true");
+  }
+});
+
+// Cek pada saat halaman dimuat
+document.addEventListener("DOMContentLoaded", function () {
+  var isRefreshed = sessionStorage.getItem("refresh") === "true";
+  var isFromLoadingPage = new URLSearchParams(window.location.search).has("from");
+  var hasRedirectedToLoading = sessionStorage.getItem("loadingRedirect") === "true";
+
+  // Hapus flag refresh setelah dicek
+  sessionStorage.removeItem("refresh");
+
+  // Hanya arahkan ke halaman loading jika halaman di-refresh dan belum diarahkan sebelumnya
+  if (isRefreshed && !isFromLoadingPage && !hasRedirectedToLoading) {
+    redirectToLoadingPage();
+  } else if (isFromLoadingPage || hasRedirectedToLoading) {
+    // Bersihkan semua flag dan parameter URL
+    sessionStorage.removeItem("loadingRedirect");
+    var cleanUrl = window.location.href.split("?")[0];
+    window.history.replaceState({}, document.title, cleanUrl);
+  }
+});
 
 
 
