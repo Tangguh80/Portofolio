@@ -34,8 +34,8 @@ document.addEventListener("mousemove", (event) => {
 
 
 
-/*====================================== animasi pada halaman pertama ====================================*/
 
+/*====================================== animasi navigation ====================================*/
 // Fungsi untuk menangani pengguliran
 function handleScroll() {
   const sections = document.querySelectorAll("section"); // Ganti dengan elemen yang sesuai
@@ -58,6 +58,35 @@ window.addEventListener("scroll", handleScroll);
 
 
 
+let lastScrollTop = 0; // Variabel untuk menyimpan posisi scroll sebelumnya
+
+window.addEventListener("scroll", function() {
+    var navContainer = document.querySelector(".nav-container");
+    var currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScrollPosition > lastScrollTop) {
+        // Menggulir ke bawah
+        navContainer.classList.remove("show");
+    } else {
+        // Menggulir ke atas
+        navContainer.classList.add("show");
+    }
+
+    lastScrollTop = currentScrollPosition <= 0 ? 0 : currentScrollPosition; // Perbarui posisi scroll sebelumnya
+}, false);
+
+
+
+
+
+window.addEventListener('scroll', function() {
+  var nav = document.querySelector('.nav-container');
+  if (window.pageYOffset > 0) {
+    nav.classList.add('not-at-top');
+  } else {
+    nav.classList.remove('not-at-top');
+  }
+});
 
 
 
@@ -65,6 +94,8 @@ window.addEventListener("scroll", handleScroll);
 
 
 
+
+/*====================================== animasi pada halaman pertama ====================================*/
 // Wait for the page to load
 window.addEventListener('load', function () {
   // Add the "show" class to elements after a delay (you can adjust the delay)
@@ -218,68 +249,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /*====================================== memeunculkan search box =========================================*/
+
 document.addEventListener('DOMContentLoaded', (event) => {
-    const searchBox = document.querySelector('.search-box');
-    const closeSearch = document.querySelector('.close-search');
-    const cariButton = document.querySelector('.cari');
-    const searchContainer = document.querySelector('.search-container');
-    const navigationLink = document.querySelector('.navigation a'); // Assuming this is the correct selector
+  const searchBox = document.querySelector('.search-box');
+  const closeSearch = document.querySelector('.close-search');
+  const cariButton = document.querySelector('.cari');
+  const searchContainer = document.querySelector('.search-container');
+  const navigationLink = document.querySelector('.navigation a'); // Assuming this is the correct selector
 
-    // Toggle search box on clicking 'cari' button
-    cariButton.addEventListener('click', function() {
-        if (searchContainer.classList.contains('active')) {
-            hideSearchBox();
-        } else {
-            showSearchBox();
-        }
-    });
+  // Toggle search box on clicking 'cari' button
+  cariButton.addEventListener('click', function() {
+      if (searchContainer.classList.contains('active')) {
+          hideSearchBox();
+      } else {
+          showSearchBox();
+      }
+  });
 
-    // Function to show the search box
-    function showSearchBox() {
-        searchContainer.classList.add('active');
-        searchBox.style.transform = 'translateX(0%)';
-        closeSearch.style.transform = 'translateX(0%)';
-        navigationLink.style.zIndex = '1'; // Move .navigation a to the back
-        searchBox.focus(); // Automatically focus on the search box
-    }
+  // Function to show the search box
+  function showSearchBox() {
+      searchContainer.classList.add('active');
+      searchBox.style.transform = 'translateX(0%)';
+      closeSearch.style.transform = 'translateX(0%)';
+      navigationLink.style.zIndex = '1'; // Move .navigation a to the back
+      searchBox.focus(); // Automatically focus on the search box
+  }
 
-    // Function to hide the search box
-    function hideSearchBox() {
-        searchBox.style.transform = 'translateX(-120%)';
-        closeSearch.style.transform = 'translateX(-900%)';
-        setTimeout(function() {
-            searchContainer.classList.remove('active');
-        }, 300); // Assumed duration of the animation
-    }
+  // Function to hide the search box
+  function hideSearchBox() {
+      searchBox.style.transform = 'translateX(-120%)';
+      closeSearch.style.transform = 'translateX(-900%)';
+      setTimeout(function() {
+          searchContainer.classList.remove('active');
+      }, 300); // Assumed duration of the animation
+  }
 
-    // Event listener for searchBox to stay open while it is focused
-    searchBox.addEventListener('focus', function() {
-        searchContainer.classList.add('active');
-    });
+  // Hide search box if click outside or on close button
+  document.addEventListener('click', function(event) {
+      if (!searchContainer.contains(event.target) && !cariButton.contains(event.target)) {
+          hideSearchBox();
+      }
+  });
 
-    searchBox.addEventListener('blur', function() {
-        if (!searchBox.value) {
-            hideSearchBox();
-        }
-    });
+  closeSearch.addEventListener('click', hideSearchBox);
 
-    closeSearch.addEventListener('click', hideSearchBox);
+  // Hide search box and adjust navigation link based on viewport size
+  function adjustLayoutBasedOnViewport() {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth <= 1121) {
+          hideSearchBox();
+          navigationLink.style.zIndex = '1'; // Move .navigation a to the front
+      }
+  }
 
-    // Hide search box and adjust navigation link based on viewport size
-    function adjustLayoutBasedOnViewport() {
-        const viewportWidth = window.innerWidth;
-        if (viewportWidth <= 1121) {
-            hideSearchBox();
-            navigationLink.style.zIndex = '1'; // Move .navigation a to the front
-        }
-    }
+  window.addEventListener('resize', adjustLayoutBasedOnViewport);
 
-    window.addEventListener('resize', adjustLayoutBasedOnViewport);
-
-    // Initial adjustment on page load
-    adjustLayoutBasedOnViewport();
+  // Initial adjustment on page load
+  adjustLayoutBasedOnViewport();
 });
-
 
 
 
@@ -343,14 +370,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /*====================================== TOMBOL TERANG DAN GELAP ====================================*/
-// Mendapatkan elemen tombol terang dan elemen-elemen lainnya
 let terang = document.querySelector(".terang");
 let logo = document.getElementById("logo");
 let kontras = document.querySelector(".sidebar ul li a[href='#contrast']");
 let modeText = kontras.querySelector("span");
+let navContainer = document.querySelector(".nav-container"); 
 
-// Mendefinisikan variabel
-let warna = localStorage.getItem("tema") || "normal"; // Memuat status tema dari localStorage atau 'normal'
+let warna = localStorage.getItem("tema") || "normal";
 let rotasi = 0;
 
 // Fungsi untuk mengganti sumber gambar logo berdasarkan tema
@@ -362,28 +388,28 @@ function updateLogoSource() {
   }
 }
 
-// Fungsi untuk memperbarui tema sesuai dengan status tema
 function updateTheme() {
-  let root = document.documentElement;
-  if (warna === "terbalik") {
-    root.style.setProperty("--white", "#000000");
-    root.style.setProperty("--black1", "#F6F8FA");
-    root.style.setProperty("--black2", "#ffffff");
-    modeText.textContent = "Mode Gelap";
-  } else {
-    root.style.setProperty("--white", "#ffffff");
-    root.style.setProperty("--black1", "#010409");
-    root.style.setProperty("--black2", "#0D1117");
-    modeText.textContent = "Mode Terang";
-  }
-  updateLogoSource(); // Memperbarui sumber gambar logo setiap kali tema diubah
+    let root = document.documentElement;
+    if (warna === "terbalik") {
+        root.style.setProperty("--white", "#000000");
+        root.style.setProperty("--black1", "#F6F8FA");
+        root.style.setProperty("--black2", "#ffffff");
+        modeText.textContent = "Mode Gelap";
+        navContainer.style.backgroundColor = "#ffffff7a"; 
+    } else {
+        root.style.setProperty("--white", "#ffffff");
+        root.style.setProperty("--black1", "#010409");
+        root.style.setProperty("--black2", "#0D1117");
+        modeText.textContent = "Mode Terang";
+        navContainer.style.backgroundColor = "#0d1117d2"; 
+    }
+    updateLogoSource();
 }
 
-// Fungsi untuk mengganti tema dan teks
 function toggleTema() {
-  warna = (warna === "normal") ? "terbalik" : "normal";
-  localStorage.setItem("tema", warna); // Menyimpan status tema ke localStorage
-  updateTheme(); // Memperbarui tema sesuai dengan status
+    warna = (warna === "normal") ? "terbalik" : "normal";
+    localStorage.setItem("tema", warna);
+    updateTheme();
 }
 
 // Memperbarui tema saat halaman dimuat
@@ -401,6 +427,11 @@ kontras.addEventListener("click", function(event) {
   event.preventDefault(); 
   toggleTema();
 });
+
+
+
+
+
 
 
 
@@ -440,7 +471,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.history.replaceState({}, document.title, cleanUrl);
   }
 });
-
 
 
 
@@ -554,26 +584,51 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*====================================== Expanded photo ====================================*/
 document.addEventListener('DOMContentLoaded', function() {
   var expandButton = document.querySelector('.expand-button');
   var photo = document.querySelector('.photo');
   var overlay = document.querySelector('.overlay');
   var backButton = document.querySelector('.back-button'); // Tombol "Kembali"
+  var body = document.body; // Reference to the body element
 
   expandButton.addEventListener('click', function() {
     photo.classList.toggle('expanded');
     overlay.classList.toggle('active');
+    body.classList.toggle('no-scroll'); // Toggle no-scroll class on body
     expandButton.style.display = photo.classList.contains('expanded') ? 'none' : 'flex';
   });
 
-  // Menggunakan backButton untuk menutup, bukan overlay
   backButton.addEventListener('click', function() {
     photo.classList.remove('expanded');
     overlay.classList.remove('active');
+    body.classList.remove('no-scroll'); // Remove no-scroll class from body
     expandButton.style.display = 'flex';
   });
 });
+
+
+
 
 
 
@@ -644,3 +699,36 @@ document
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
