@@ -125,50 +125,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /*====================================== memunculkan side bar pada tampilan mobile ====================================*/
-
-// Pilih elemen-elemen yang dibutuhkan
-const menuToggle = document.querySelector(".menu-toggle");
+// JavaScript for Toggle Functionality
+const menuToggle = document.querySelector(".checkbox");
 const sidebar = document.querySelector(".sidebar");
-const navigation = document.querySelector(".navigation");
-const body = document.querySelector('body'); // Pilih elemen body
+const body = document.querySelector('body'); // Select the body element
 
-// Fungsi untuk toggle sidebar dan mengatur overflow pada body
-function toggleSidebar() {
-  if (sidebar.classList.contains('sidebar-visible')) {
-    sidebar.classList.remove('sidebar-visible');
-    menuToggle.innerHTML = '<ion-icon name="menu-outline"></ion-icon>';
-    body.classList.remove('no-scroll'); // Mengaktifkan kembali scroll pada body
-  } else {
-    sidebar.classList.add('sidebar-visible');
-    menuToggle.innerHTML = '<ion-icon name="close-circle-outline"></ion-icon>';
-    body.classList.add('no-scroll'); // Menonaktifkan scroll pada body
-  }
-}
-
-// Atur event listener untuk menu toggle
-menuToggle.addEventListener("click", toggleSidebar);
-
-// Fungsi untuk mengecek dan menyesuaikan tampilan berdasarkan lebar layar
-function checkWidth() {
-  if (window.innerWidth <= 892) {
-    if (!sidebar.classList.contains('sidebar-visible')) {
-      navigation.style.display = "block";
-      body.classList.remove('no-scroll'); // Pastikan scroll diaktifkan
+menuToggle.addEventListener("change", function() {
+    if (this.checked) {
+        sidebar.classList.add('sidebar-visible');
+        body.classList.add('no-scroll'); // Add class to prevent body scrolling
+    } else {
+        sidebar.classList.remove('sidebar-visible');
+        body.classList.remove('no-scroll'); // Remove class to allow body scrolling
     }
-  } else {
-    navigation.style.display = "block";
-    sidebar.classList.remove('sidebar-visible'); // Sembunyikan sidebar
-    menuToggle.innerHTML = '<ion-icon name="menu-outline"></ion-icon>';
-    body.classList.remove('no-scroll'); // Pastikan scroll diaktifkan
-  }
-}
+});
 
-// Panggil fungsi checkWidth saat halaman dimuat
-checkWidth();
-
-// Pantau perubahan lebar layar dan sesuaikan tampilan
-window.addEventListener("resize", checkWidth);
-
+        
 
 
 
