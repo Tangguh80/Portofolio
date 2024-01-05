@@ -1386,19 +1386,86 @@ z-index: 0;
 }
 
 
- .menu-toggle {
-   position: fixed;
-   display: flex;
-   justify-content: center; 
-   align-items: center; 
-   cursor: pointer;  
-   color: var(--white);
-   top: 31px; 
-   right: 18px; 
-   transform: translate(-50%, -50%); 
-   font-size: 28px;
-   z-index: 6;
- }
+
+
+ .checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.menu-toggle {
+  position: fixed;
+  display: flex;
+  height: 30px;
+  width: 30px;
+  top: 31px;
+  right: 18px;
+  z-index: 6;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+}
+
+.menu-toggle .common {
+  position: absolute;
+  height: 2px;
+  width: 20px;
+  background-color: var(--white);
+  border-radius: 50px;
+  transition: 0.3s ease;
+}
+
+.menu-toggle .top_line {
+  width: 30px;
+  top: 30%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-toggle .middle_line {
+  width: 20px;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-toggle .bottom_line {
+  width: 12px;
+  top: 70%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+
+.checkbox:checked ~ .menu-toggle .top_line {
+  left: 2px;
+  top: 14px;
+  width: 25px;
+  transform: rotate(45deg);
+}
+
+.checkbox:checked ~ .menu-toggle .bottom_line {
+  left: 2px;
+  top: 14px;
+  width: 25px;
+  transform: rotate(-45deg);
+}
+
+.checkbox:checked ~ .menu-toggle .middle_line {
+  opacity: 0;
+  transform: translate(20px);
+}
+
+
+
+
+
+
 
  .sidebar {
    top: 0;
@@ -1408,7 +1475,7 @@ z-index: 0;
    height: 200%;
    cursor: default;
    overflow: hidden;
-   background-color: var(--black1);
+   background-color: var(--black2);
    position: fixed;
    left: -900px; 
    z-index: 5;
@@ -1651,7 +1718,7 @@ line-height: 1.5;
 /*====================================== Container Photo ====================================*/
 .container-photo {
   position: absolute;
-  top: 1250px;
+  top: 1230px;
   bottom: 0;
   left: 0;
   right: 0;
