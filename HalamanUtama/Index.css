@@ -1408,7 +1408,12 @@ z-index: 0;
   overflow: hidden;
   border-radius: 2px;
   background-color: transparent;
+  transition: top 0.5s ease-in-out, transform 0.5s ease-in-out;
   transform: translate(-50%, -50%);
+}
+
+.menu-toggle.raised {
+  top: -20px; /* Naikkan di atas layar */
 }
 
 .menu-toggle .common {
