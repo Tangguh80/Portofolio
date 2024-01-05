@@ -62,19 +62,21 @@ let lastScrollTop = 0; // Variabel untuk menyimpan posisi scroll sebelumnya
 
 window.addEventListener("scroll", function() {
     var navContainer = document.querySelector(".nav-container");
+    var menuToggle = document.querySelector(".menu-toggle");
     var currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
     if (currentScrollPosition > lastScrollTop) {
         // Menggulir ke bawah
         navContainer.classList.remove("show");
+        menuToggle.classList.add("raised");
     } else {
         // Menggulir ke atas
         navContainer.classList.add("show");
+        menuToggle.classList.remove("raised");
     }
 
     lastScrollTop = currentScrollPosition <= 0 ? 0 : currentScrollPosition; // Perbarui posisi scroll sebelumnya
 }, false);
-
 
 
 
