@@ -416,25 +416,6 @@ margin-right: 20px;
  margin: 5px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*====================================== Container1 ====================================*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
@@ -502,7 +483,7 @@ font-family: 'Poppins', sans-serif;
   font-size: 16px;
   text-align: justify;
   font-family: 'Poppins', sans-serif;
-  margin-right: 260px; /* Atur margin kanan sesuai kebutuhan */
+  margin-right: 260px; 
 }
 
 
@@ -592,135 +573,136 @@ text-align: justify;
 }
 
 
-
-/*====================================== carousel  ====================================*/
-.container-carousel {
-  position: absolute;
-  top: 230%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  width: 65%;
-  border-radius: 15px;
-  height: 500px;
+/*====================================== Tabs riwayat pendidikan  ====================================*/
+.container_tab {
+  position: relative;
+  top: 800px;
   background-color: transparent;
-  overflow: hidden;
-  padding: 20px;
+    width:100vw; 
+    height: 90vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    z-index: -2;
 }
 
-.slide1,
-.slide2,
-.slide3,
-.slide4 {
+
+.underline {
+  margin-left: 20px;
+  width: 2px; 
+  height: 0;
+  background-color: var(--cyan);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 79%;
-  min-width: 5%;
-  margin-right: 100px;
-  margin-left: 0px;
-  border-radius: 15px;
-  height: 400px;
-  background-color: transparent;
-  padding: 20px;
-  z-index: 2;
-  overflow: hidden;
-  transform: translate(-50%, -50%);
-  transition: transform 0.5s ease;
+  left: 0; 
+  transition: top 0.5s, height 0.5s;
 }
 
-.left-slide {
+.container_btn {
   position: absolute;
-  left: 5px;
-  top: 50%;
-  cursor: pointer;
+  top: 195px;
+  left: 130px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-}
-
-.left-slide ion-icon {
-  font-size: 50px;
-  color: var(--white);
-}
-
-.right-slide {
-  position: absolute;
-  right: 5px;
-  margin-left: 780px;
-  top: 50%;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-}
-
-.right-slide ion-icon {
-  font-size: 50px;
-  color: var(--white);
-}
-
-.slide1 img {
-  position: absolute;
-  margin-left: 0px;
-  margin-right: 100px;
-  max-width: 160%;
-  min-width: 10%;
-  height: 170%;
-  object-fit: contain; 
-  top: 18%; 
-  left: 50%; 
-  transform: translate(-50%, -50%);
-}
-
-.slide2 img {
-  position: absolute;
-  margin-left: 0px;
-  margin-right: 100px;
-  max-width: 160%;
-  min-width: 10%;
-  height: 170%;
-  object-fit: contain; 
-  top: 18%; 
-  left: 50%; 
-  transform: translate(-50%, -50%);
-}
-
-/*====================================== slide1 ====================================*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
-
-.slide1-container {
-  position: absolute;
-  top: 68%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust to perfectly center */
-  background-color: transparent;
-  text-align: justify;
-  width: 95%;
-  min-width: 10%;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 10px;
   padding: 20px;
-  border-radius: 15px;
-  animation: slideUpFadeIn 1s ease-out;
-  z-index: 0;
+  width: 20%; 
+  max-width: 150px; 
 }
 
-.container-title {
+.tab_btn {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--white);
+  text-transform: capitalize;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-align: left; 
+  border-left: 2px solid rgba(128, 128, 128, 0.5);
+  outline: none; 
+  transition: background-color 0.5s ease;
+}
+
+.tab_btn.active {
   color: var(--cyan);
-  font-size: 24px;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 10px;
-  text-align: left;
+  border-left: 2px solid rgba(128, 128, 128, 0.5);
+  border-bottom: none;
 }
 
-.container-text {
-  color: var(--white);
-  font-size: 15px;
-  line-height: 1.5;
-  font-family: "Poppins", sans-serif;
-  text-align: justify;
+.tab_btn:focus {
+  outline: none;
+  background-color:#00d0fa2d;
 }
+
+.tab_btn:hover {
+  background-color: #00d0fa2d;
+}
+
+
+
+
+
+
+
+
+
+
+/* Content box and content styles */
+.content_box {
+  position: absolute;
+  top: 180px;
+  left: 300px;
+  padding: 20px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 800px;
+  right: 100px; /* Menentukan batas margin kanan sebesar 20px */
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+.content h2 {
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
+}
+
+.content p {
+  color: var(--white);
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+
+
+.container_tab .container-title{
+  position: absolute;
+  left: 150px;
+  top: 80px;
+  margin-left: 0px;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -1342,10 +1324,122 @@ overflow-x: hidden;
   z-index: 0;
 }
 
-.container-carousel {
-  position: absolute;
-  top: 2000px; 
+/*====================================== Tabs riwayat pendidikan  ====================================*/
+.container_tab {
+  position: relative;
+  top: 1000px;
+  background-color: transparent;
+    width:100vw; 
+    height: 90vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    z-index: -2;
 }
+
+
+.underline {
+  margin-left: 20px;
+  width: 2px; 
+  height: 0;
+  background-color: var(--cyan);
+  position: absolute;
+  left: 0; 
+  transition: top 0.5s, height 0.5s;
+}
+
+.container_btn {
+  position: absolute;
+  top: 195px;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--black2);
+  box-shadow: none;
+  border-radius: 10px;
+  padding: 20px;
+  width: 20%; 
+  max-width: 200px; 
+}
+
+.tab_btn {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--white);
+  text-transform: capitalize;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-align: left; 
+  border-left: 2px solid rgba(128, 128, 128, 0.5);
+  outline: none; 
+  transition: background-color 0.5s ease;
+}
+
+.tab_btn.active {
+  color: var(--cyan);
+  border-left: 2px solid rgba(128, 128, 128, 0.5);
+  border-bottom: none;
+}
+
+
+
+
+
+
+
+/* Content box and content styles */
+.content_box {
+  position: absolute;
+  top: 180px;
+  left: 200px;
+  padding: 20px;
+  background: var(--black2);
+  box-shadow: none;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 1000px;
+  right: 100px; /* Menentukan batas margin kanan sebesar 20px */
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+.content h2 {
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
+}
+
+.content p {
+  color: var(--white);
+  text-align: justify;  
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+
+
+.container_tab .container-title{
+  position: absolute;
+  left: 45px;
+  top: 80px;
+  margin-left: 0px;
+}
+
+.tab_btn:focus {
+  outline: none;
+  background-color:#00d0fa2d;
+}
+
 
  }
 
@@ -1725,6 +1819,17 @@ color: var(--white);
 line-height: 1.5;
 }
 
+.about-container .container-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width:195px; /* mengatur lebar garis */
+  height: 1px;
+  background-color: gray;
+  margin-left: 10px; /* Jarak dari judul ke garis */
+}
+
 /*====================================== Container Photo ====================================*/
 .container-photo {
   position: absolute;
@@ -1811,136 +1916,137 @@ line-height: 1.5;
       color: var(--cyan);
       }
 
-/*====================================== carousel  ====================================*/
-.container-carousel {
-  position: absolute;
-  top: 280%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  width: 78%;
-  border-radius: 15px;
-  height: 530px;
+
+/*====================================== Tabs riwayat pendidikan  ====================================*/
+
+.container_tab {
+  position: relative;
+  top: 1200px;
   background-color: transparent;
-  overflow: hidden;
-  padding: 20px;
+    width:100vw;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.underline {
+  position: relative;
+  top: 58.5px;
+  margin: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--cyan);
+  position: absolute;
+  bottom: 0;
+  transition: left 0.5s, width 0.5s;
 }
 
-.slide1,
-.slide2,
-.slide3,
-.slide4 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 70%;
-  min-width: 5%;
-  margin-right: 0px;
-  margin-left: 0px;
-  border-radius: 15px;
-  height: 450px;
-  background-color: transparent;
-  padding: 20px;
-  z-index: 2;
-  overflow: hidden;
-  transform: translate(-50%, -50%);
-  transition: transform 0.5s ease;
-}
-
-.left-slide {
-  position: absolute;
-  left: -2px;
-  top: 50%;
-  cursor: pointer;
+.container_btn {
+  left: 2px;
+  margin-right: 20px;
+  top: 120px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-}
-
-.left-slide ion-icon {
-  font-size: 34px;
-  color: var(--white);
-}
-
-.right-slide {
-  position: absolute;
-  right: -2px;
-  margin-left: 790px;
-  top: 50%;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-}
-
-.right-slide ion-icon {
-  font-size: 34px;
-  color: var(--white);
-}
-
-.slide1 img {
-  position: absolute;
-  margin-left: 0px;
-  margin-right: 100px;
-  max-width: 160%;
-  min-width: 10%;
-  height: 170%;
-  object-fit: contain; 
-  top: 10%; 
-  left: 48%; 
-  transform: translate(-50%, -50%);
-}
-
-.slide2 img {
-  position: absolute;
-  margin-left: 0px;
-  margin-right: 100px;
-  max-width: 160%;
-  min-width: 10%;
-  height: 170%;
-  object-fit: contain; 
-  top: 10%; 
-  left: 48%; 
-  transform: translate(-50%, -50%);
-}
-
-/*====================================== slide1 ====================================*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
-
-.slide1-container {
-  position: absolute;
-  top: 55%; 
-  left: 50%; 
-  transform: translate(-50%, -50%);
-  background-color: transparent;
-  text-align: justify;
-  width: 95%;
-  min-width: 10%;
+  flex-direction: row;
+  justify-content: space-between; 
+  background: transparent;
+  box-shadow: none;
+  border-radius: 10px;
   padding: 20px;
-  border-radius: 15px;
-  animation: slideUpFadeIn 1s ease-out;
-  z-index: 0;
+  margin-bottom: 20px;
+  min-width: 89%;
+  max-width: 20%;
 }
 
-.container-title {
+
+.tab_btn {
+  flex-grow: 1; 
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--white);
+  text-transform: capitalize;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-align: center; 
+  border-bottom: 2px solid rgba(128, 128, 128, 0.5);
+  outline: none; 
+  transition: background-color 0.5s ease;
+}
+
+
+.tab_btn.active {
   color: var(--cyan);
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 10px;
-  text-align: left;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.5);
+  border-left: none;
 }
 
-.container-text {
+.tab_btn:focus {
+    outline: none;
+    background-color:#00d0fa2d;
+}
+
+
+
+
+
+
+
+
+
+
+/* Content box and content styles */
+.content_box {
+  position: relative;
+  left: 0px;
+  top: 60px;
+  padding: 20px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 10px;
+  width: 88%; /* Menggunakan persentase agar responsif */
+  max-width: 400px;
+  height: 400px;
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+.content h2 {
   color: var(--white);
-  font-size: 15px;
-  line-height: 1.5;
-  font-family: "Poppins", sans-serif;
-  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
 }
 
+.content p {
+  color: var(--white);
+  text-align: justify;  
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
 
+.container_tab .container-title{
+  position: absolute;
+  left: 28px;
+  top: 50px;
+  margin-left: 0px;
+}
 
+.container_tab .container-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width:180px; /* mengatur lebar garis */
+  height: 1px;
+  background-color: gray;
+  margin-left: 10px; /* Jarak dari judul ke garis */
+}
 
 }
