@@ -40,6 +40,8 @@ document.addEventListener("mousemove", (event) => {
 function handleScroll() {
   const sections = document.querySelectorAll("section"); // Ganti dengan elemen yang sesuai
   const navigationLinks = document.querySelectorAll(".navigation ul li a");
+  const menuToggle = document.querySelector(".menu-toggle");
+
 
   sections.forEach((section, index) => {
     const sectionTop = section.offsetTop;
@@ -81,6 +83,7 @@ window.addEventListener("scroll", function() {
 
 
 
+
 window.addEventListener('scroll', function() {
   var nav = document.querySelector('.nav-container');
   if (window.pageYOffset > 0) {
@@ -89,6 +92,14 @@ window.addEventListener('scroll', function() {
     nav.classList.remove('not-at-top');
   }
 });
+
+
+
+
+
+
+
+
 
 
 
@@ -628,48 +639,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-/*====================================== slide carousel ====================================*/
-let currentSlideIndex = 0; // indeks slide saat ini
-const slides = document.querySelectorAll(
-  ".container-carousel > div:not(.left-slide, .right-slide)"
-); // pilih semua slide
+/*====================================== tabs ====================================*/
 
-function updateSlidePosition() {
-  slides.forEach((slide, index) => {
-    if (index === currentSlideIndex) {
-      slide.style.transform = "translate(-50%, -50%)"; // Slide aktif ke tengah
-    } else if (index < currentSlideIndex) {
-      slide.style.transform = "translate(calc(-150% - 100px), -50%)"; // Slide lain ke kiri dengan jarak tambahan
+document.addEventListener("DOMContentLoaded", function() {
+  const tabs = document.querySelectorAll('.tab_btn');
+  const all_content = document.querySelectorAll('.content');
+  const line = document.querySelector('.underline');
+  let activeTabIndex = 0; // Menyimpan indeks tab yang aktif
+
+  function updateLine() {
+    const activeTab = tabs[activeTabIndex];
+    const tabRect = activeTab.getBoundingClientRect();
+
+    if (window.innerWidth > 578) {
+      // Tampilan vertikal
+      line.style.height = tabRect.height + 'px'; // Tinggi garis sesuai dengan tinggi tab
+      line.style.width = '2px'; // Lebar garis tetap
+      line.style.top = activeTab.offsetTop + 'px'; // Posisi vertikal
+      line.style.left = ''; // Reset posisi horizontal
     } else {
-      slide.style.transform = "translate(calc(150% + 100px), -50%)"; // Slide lain ke kanan dengan jarak tambahan
+      // Tampilan horizontal
+      line.style.width = tabRect.width + 'px'; // Lebar garis sesuai dengan lebar tab
+      line.style.height = '2px'; // Tinggi garis tetap
+      line.style.left = activeTab.offsetLeft + 'px'; // Posisi horizontal
+      line.style.top = ''; // Reset posisi vertikal
     }
-  });
-}
+  }
 
-// Atur posisi slide saat pertama kali
-updateSlidePosition();
+  // Tambahkan event click ke semua tab
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      // Logika untuk mengaktifkan tab dan menampilkan konten
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      all_content.forEach(c => c.style.display = 'none');
+      all_content[index].style.display = 'block';
 
-document
-  .querySelector(".right-slide")
-  .addEventListener("click", function () {
-    if (currentSlideIndex < slides.length - 1) {
-      currentSlideIndex++; // pindah ke slide berikutnya
-    } else {
-      currentSlideIndex = 0; // kembali ke slide pertama
-    }
-    updateSlidePosition();
+      activeTabIndex = index; // Perbarui indeks tab yang aktif
+      updateLine(); // Pindahkan garis
+    });
   });
 
-document
-  .querySelector(".left-slide")
-  .addEventListener("click", function () {
-    if (currentSlideIndex > 0) {
-      currentSlideIndex--; // pindah ke slide sebelumnya
-    } else {
-      currentSlideIndex = slides.length - 1; // pindah ke slide terakhir
-    }
-    updateSlidePosition();
+  // Event listener untuk perubahan ukuran window
+  window.addEventListener('resize', updateLine);
+
+  // Inisialisasi
+  updateLine();
+  tabs[0].classList.add('active'); // Tandai tab pertama sebagai aktif
+  all_content.forEach((content, index) => {
+    content.style.display = index === 0 ? 'block' : 'none'; // Tampilkan hanya konten "Home"
   });
+});
+
+
+
+
 
 
 
